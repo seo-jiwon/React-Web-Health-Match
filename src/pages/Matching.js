@@ -13,8 +13,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import RadioGroup from '@mui/material/RadioGroup';
+import { Radio } from '@mui/material';
+
+
 const AREA_SELECT = ['대구광역시', '경산시']
-const DAY_SELECT = ['월','화', '수', '목', '금', '토', '일']
+const DAY_SELECT = ['월', '화', '수', '목', '금', '토', '일']
 const TIME_SELECT = [6, 7, 8, 9, 10, 11, 12, 13]
 
 const useStyles = makeStyles((theme) => ({
@@ -32,9 +36,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Matching() {
     const classes = useStyles();
 
+    const [ checkedFace, setCheckedFace ] = useState('');  
     const [ searchArea, setSearchArea ] = useState('');
     const [ searchDay, setSearchDay ] = useState('');
     const [ searchTime, setSearchTime ] = useState('');
+    const [ checkedPay, setCheckedPay ] = useState('');  
+
 
     const handleChange = (e, type) => {
     const value = e.target.value;
@@ -44,18 +51,29 @@ export default function Matching() {
         } else if (type === 'day') {
             setSearchDay(value);
             console.log('요일 선택 완료');
-        } else {
+        } else if (type === 'time') {
             setSearchTime(value);
             console.log('시간 선택 완료');
+        } else if (type === 'facetoface') {
+            setCheckedFace(value);
+            console.log('대면 선택 완료');
+        } else if (type === 'nonfacetoface') {
+            setCheckedFace(value);
+            console.log('비대면 선택 완료');
+        } else if (type === 'free') {
+            setCheckedPay(value);
+            console.log('무료 선택 완료');
+        } else if (type === 'nofree') {
+            setCheckedPay(value);
+            console.log('유료 선택 완료');
         }
+        
     };
 
     const getData = useCallback(() => {
-        const date = `${searchArea} ${searchDay} ${searchTime}`
+        const date = `${checkedFace} ${searchArea} ${searchDay} ${searchTime} ${checkedPay}`
         console.log(date)
-      }, [searchArea, searchDay, searchTime])
-
-
+      }, [checkedFace, searchArea, searchDay, searchTime, checkedPay])
 
 
       const navigate = useNavigate();
@@ -64,11 +82,11 @@ export default function Matching() {
         e.preventDefault();
         const data = {
             user_id : "no",
-            face : "no",
+            face : e.target.face.value,
             area : e.target.area.value,
             day : e.target.day.value,
             time : e.target.time.value,
-            free : "no",
+            free : e.target.pay.value,
         }
     
         axios.post("http://localhost:5000/user_match/matching", data)
@@ -87,10 +105,38 @@ export default function Matching() {
         <div>
             <Navbar />
             <form onSubmit={matchSubmit}>
-            <FormGroup>
-                <FormControlLabel control={<Checkbox />} label="대면" />
-                <FormControlLabel control={<Checkbox />} label="비대면" />
-            </FormGroup>
+
+            <RadioGroup>
+                <FormControlLabel
+                    value="1"
+                    defaultValue={checkedFace}
+                    control={<Radio />}
+                    onChange={(e) => handleChange(e, 'facetoface')}
+                    id="facetoface"
+                    name="face"
+                    label="대면">
+                    {
+                        AREA_SELECT.map((facetoface, idx) => {
+                        return <option key={idx} value={facetoface}>{facetoface}</option>
+                    })
+                }
+                </FormControlLabel>
+                <FormControlLabel
+                    value="0"
+                    defaultValue={checkedFace}
+                    control={<Radio />}
+                    onChange={(e) => handleChange(e, 'nonfacetoface')}
+                    id="nonfacetoface"
+                    name="face"
+                    label="비대면">
+                    {
+                        AREA_SELECT.map((nonfacetoface, idx) => {
+                        return <option key={idx} value={nonfacetoface}>{nonfacetoface}</option>
+                    })
+                }
+                </FormControlLabel>
+            </RadioGroup>
+        
             <FormControl className={classes.formControl}>
             <InputLabel variant="standard" htmlFor="uncontrolled-native">
                 지역
@@ -110,6 +156,7 @@ export default function Matching() {
                 }
             </NativeSelect>
             </FormControl>
+
             <FormControl className={classes.formControl}>
             <InputLabel variant="standard" htmlFor="uncontrolled-native">
                 요일
@@ -148,10 +195,36 @@ export default function Matching() {
                 }
             </NativeSelect>
             </FormControl>
-            <FormGroup>
-                <FormControlLabel control={<Checkbox />} label="무료"/>
-                <FormControlLabel control={<Checkbox />} label="유료" />
-            </FormGroup>
+            <RadioGroup>
+                <FormControlLabel
+                    value="0"
+                    defaultValue={checkedPay}
+                    control={<Radio />}
+                    onChange={(e) => handleChange(e, 'free')}
+                    id="free"
+                    name="pay"
+                    label="무료">
+                    {
+                        AREA_SELECT.map((free, idx) => {
+                        return <option key={idx} value={free}>{free}</option>
+                    })
+                }
+                </FormControlLabel>
+                <FormControlLabel
+                    value="1"
+                    defaultValue={checkedPay}
+                    control={<Radio />}
+                    onChange={(e) => handleChange(e, 'nofree')}
+                    id="noface"
+                    name="pay"
+                    label="유료">
+                    {
+                        AREA_SELECT.map((nofree, idx) => {
+                        return <option key={idx} value={nofree}>{nofree}</option>
+                    })
+                }
+                </FormControlLabel>
+            </RadioGroup>
             <Box>
                 <Button className={classes.tab} onClick={getData} type="submit">완료</Button>
             </Box>
