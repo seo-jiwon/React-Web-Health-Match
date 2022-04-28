@@ -1,0 +1,9 @@
+main {
+    display: grid;
+    place-content: center;
+    margin-top: 1rem;
+}
+
+.Box {
+    padding-left: 33%;
+}

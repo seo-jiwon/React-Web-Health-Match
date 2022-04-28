@@ -2,7 +2,6 @@ import * as React from 'react';
 import Navbar from './Navbar';
 import FormGroup from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
@@ -12,6 +11,7 @@ import NativeSelect from '@mui/material/NativeSelect';
 import { makeStyles } from '@material-ui/core/styles';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Matching.css'
 
 import RadioGroup from '@mui/material/RadioGroup';
 import { Radio } from '@mui/material';
@@ -19,7 +19,7 @@ import { Radio } from '@mui/material';
 
 const AREA_SELECT = ['대구광역시', '경산시']
 const DAY_SELECT = ['월', '화', '수', '목', '금', '토', '일']
-const TIME_SELECT = [6, 7, 8, 9, 10, 11, 12, 13]
+const TIME_SELECT = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -105,8 +105,8 @@ export default function Matching() {
         <div>
             <Navbar />
             <form onSubmit={matchSubmit}>
-
-            <RadioGroup>
+            <main>
+            <RadioGroup row>
                 <FormControlLabel
                     value="1"
                     defaultValue={checkedFace}
@@ -149,6 +149,7 @@ export default function Matching() {
                 id="area"
                 name="area"
             >
+                <option value=''></option>
                 {
                 AREA_SELECT.map((area, idx) => {
                     return <option key={idx} value={area}>{area}</option>
@@ -169,6 +170,7 @@ export default function Matching() {
                 id="day"
                 name="day"
             >
+                <option value=''></option>
                 {
                 DAY_SELECT.map((day, idx) => {
                     return <option key={idx} value={day}>{day}요일</option>
@@ -176,6 +178,7 @@ export default function Matching() {
                 }
             </NativeSelect>
             </FormControl>
+
             <FormControl className={classes.formControl}>
             <InputLabel variant="standard" htmlFor="uncontrolled-native">
                 시간
@@ -188,6 +191,7 @@ export default function Matching() {
                 id="time"
                 name="time"
             >
+                <option value=''></option>
                 {
                 TIME_SELECT.map((time, idx) => {
                     return <option key={idx} value={time}>{time}시</option>
@@ -195,7 +199,8 @@ export default function Matching() {
                 }
             </NativeSelect>
             </FormControl>
-            <RadioGroup>
+
+            <RadioGroup row>
                 <FormControlLabel
                     value="0"
                     defaultValue={checkedPay}
@@ -225,9 +230,10 @@ export default function Matching() {
                 }
                 </FormControlLabel>
             </RadioGroup>
-            <Box>
-                <Button className={classes.tab} onClick={getData} type="submit">완료</Button>
+            <Box className="Box">
+                <Button variant="outlined" color="primary" size="small" onClick={getData} type="submit">완료</Button>
             </Box>
+            </main>
             </form>
         </div>
     );
