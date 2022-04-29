@@ -4,6 +4,15 @@ main {
     margin-top: 1rem;
 }
 
+.A {
+    border: 1px solid #3676c7;
+    padding: 5rem;
+    margin-top: 3rem;
+    display:grid;
+    border-radius: 10px;
+}
+
 .Box {
     padding-left: 33%;
+    margin-top: 3rem;
 }

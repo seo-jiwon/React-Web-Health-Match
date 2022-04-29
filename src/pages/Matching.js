@@ -99,6 +99,8 @@ export default function Matching() {
         }).catch(function(error){
           alert("매칭 설정 실패!" + error);
         });
+
+        //선택 확인 소스코드 넣기
     }
       
     return (
@@ -106,6 +108,7 @@ export default function Matching() {
             <Navbar />
             <form onSubmit={matchSubmit}>
             <main>
+            <div className="A">
             <RadioGroup row>
                 <FormControlLabel
                     value="1"
@@ -233,6 +236,7 @@ export default function Matching() {
             <Box className="Box">
                 <Button variant="outlined" color="primary" size="small" onClick={getData} type="submit">완료</Button>
             </Box>
+            </div>
             </main>
             </form>
         </div>
