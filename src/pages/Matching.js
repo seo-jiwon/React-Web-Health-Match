@@ -107,7 +107,7 @@ export default function Matching() {
         <div>
             <Navbar />
             <form onSubmit={matchSubmit}>
-            <main>
+            <main className="main">
             <div className="A">
             <RadioGroup row>
                 <FormControlLabel

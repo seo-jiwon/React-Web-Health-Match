@@ -1,4 +1,4 @@
-main {
+.main {
     display: grid;
     place-content: center;
     margin-top: 1rem;
