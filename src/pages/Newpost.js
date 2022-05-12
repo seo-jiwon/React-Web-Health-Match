@@ -30,7 +30,7 @@ export default function Newpost() {
       console.log(response);
       if(response.data.success){
         alert("게시글 등록이 성공하였습니다.");
-        navigate('/list');
+        navigate('/community');
       }
     }).catch(function(error){
       alert("게시글 등록 실패!" + error);

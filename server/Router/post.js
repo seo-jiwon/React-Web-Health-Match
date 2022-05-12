@@ -17,7 +17,7 @@ router.post("/newpost", (req, res) => {
 });
 
 // 게시판 목록 조회
-router.get('/list', (req,res) => {
+router.get('/community', (req,res) => {
     database.query('SELECT post_id, title, writer, write_date FROM post', (err, result) => {
         if(err) res.send(err);
         else{

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ListItem from './ListItem';
-import './List.css'
+import { Link } from 'react-router-dom';
+import './Community.css'
 import Navbar from './Navbar';
 import Button from '@mui/material/Button';
 
@@ -21,9 +21,26 @@ function useFetch(url) {
     return data;
 }
 
-function List() {
+function ListItem({ post_id, title, writer, write_date }) {
 
-    const data = useFetch('http://localhost:5000/post/list');
+    return (
+        <Link to={{
+            pathname:"/detail",
+            search:`?board_id=${post_id}`
+        }} style={{ textDecoration: 'none', color: 'black'}}>
+            <div className="list-item">
+                <div className="post_id">{post_id}</div>
+                <div className="title">{title}</div>
+                <div className="writer">{writer}</div>
+                <div className="write_date">{write_date}</div>
+            </div>
+        </Link>
+    )
+}
+
+function Community() {
+
+    const data = useFetch('http://localhost:5000/post/community');
 
     return (
         <div>
@@ -57,4 +74,4 @@ function List() {
     );
 }
 
-export default List;
+export default Community;

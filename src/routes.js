@@ -2,7 +2,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import Newpost from "./pages/Newpost";
 import NotFound from "./pages/NotFound";
-import List from "./pages/List";
+import Community from "./pages/Community";
 import Matching from "./pages/Matching";
 
 export default function Router(){
@@ -10,7 +10,7 @@ export default function Router(){
         { path : '/', element:<Home/>},
         { path : 'newpost', element:<Newpost/>},
         { path : '*', element:<NotFound/>},
-        { path : 'list', element:<List/>},
+        { path : 'community', element:<Community/>},
         { path : 'matching', element:<Matching/>}
     ]);
 }
