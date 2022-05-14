@@ -51,7 +51,7 @@ export default function Navbar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem component="a" href="/">Timetable</MenuItem>
+              <MenuItem component="a" href="/timetable">Timetable</MenuItem>
               <MenuItem component="a" href="/">Curriculum</MenuItem>
             </Menu>
           </div>

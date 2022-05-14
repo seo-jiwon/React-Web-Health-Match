@@ -4,6 +4,7 @@ import Newpost from "./pages/Newpost";
 import NotFound from "./pages/NotFound";
 import Community from "./pages/Community";
 import Matching from "./pages/Matching";
+import TimeTable from "./pages/TimeTable";
 
 export default function Router(){
     return useRoutes([
@@ -11,6 +12,7 @@ export default function Router(){
         { path : 'newpost', element:<Newpost/>},
         { path : '*', element:<NotFound/>},
         { path : 'community', element:<Community/>},
-        { path : 'matching', element:<Matching/>}
+        { path : 'matching', element:<Matching/>},
+        { path : 'timetable', element:<TimeTable/>}
     ]);
 }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Navbar from './Navbar';
-import FormGroup from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -21,13 +20,13 @@ const AREA_SELECT = ['대구광역시', '경산시']
 const DAY_SELECT = ['월', '화', '수', '목', '금', '토', '일']
 const TIME_SELECT = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     formControl: {
         margin:theme.spacing(1),
         minWidth: 120,
     },
     selectEmpty: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(5),
     },
 }));
 
@@ -67,10 +66,37 @@ export default function Matching() {
             setCheckedPay(value);
             console.log('유료 선택 완료');
         }
-        
     };
 
     const getData = useCallback(() => {
+
+      //선택 확인 소스코드 넣기
+     // let faceCheck = document.getElementById("facetoface").value
+    //   let noFaceCheck = document.getElementById("nofacetoface").value
+    //   let areaCheck = document.getElementById("area").value
+    //   let dayCheck = document.getElementById("day").value
+    //   let timeCheck = document.getElementById("time").value
+    //   let freeCheck = document.getElementById("free").value
+    //   let noFreeCheck = document.getElementById("nofree").value
+    //   let check = true
+
+
+
+    //   if(faceCheck === false && noFaceCheck === false) {
+    //       document.getElementById("faceCheckError").innerHTML="대면 여부를 선택하세요."
+    //       document.getElementById("noFaceCheckError").innerHTML=""
+    //   } else {
+    //       document.getElementById("faceCheckError").innerHTML=""
+    //       document.getElementById("noFaceCheckError").innerHTML=""
+    //   }
+
+    //   if (noFaceCheck === true) {
+    //       areaCheck.check = false
+    //   }
+
+     // if (!faceCheck.value) return alert("대면여부선택");
+
+      //
         const date = `${checkedFace} ${searchArea} ${searchDay} ${searchTime} ${checkedPay}`
         console.log(date)
       }, [checkedFace, searchArea, searchDay, searchTime, checkedPay])
@@ -100,7 +126,7 @@ export default function Matching() {
           alert("매칭 설정 실패!" + error);
         });
 
-        //선택 확인 소스코드 넣기
+  
     }
       
     return (
@@ -223,7 +249,7 @@ export default function Matching() {
                     defaultValue={checkedPay}
                     control={<Radio />}
                     onChange={(e) => handleChange(e, 'nofree')}
-                    id="noface"
+                    id="nofree"
                     name="pay"
                     label="유료">
                     {
