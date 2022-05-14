@@ -52,7 +52,7 @@ export default function Navbar() {
               onClose={handleClose}
             >
               <MenuItem component="a" href="/timetable">Timetable</MenuItem>
-              <MenuItem component="a" href="/">Curriculum</MenuItem>
+              <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
             </Menu>
           </div>
           <Button color="inherit" href="/">Login</Button>

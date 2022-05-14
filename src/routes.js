@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import Community from "./pages/Community";
 import Matching from "./pages/Matching";
 import TimeTable from "./pages/TimeTable";
+import Curriculum from "./pages/Curriculum";
 
 export default function Router(){
     return useRoutes([
@@ -13,6 +14,7 @@ export default function Router(){
         { path : '*', element:<NotFound/>},
         { path : 'community', element:<Community/>},
         { path : 'matching', element:<Matching/>},
-        { path : 'timetable', element:<TimeTable/>}
+        { path : 'timetable', element:<TimeTable/>},
+        { path : 'curriculum', element:<Curriculum/>},
     ]);
 }

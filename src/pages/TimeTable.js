@@ -1,40 +1,45 @@
 import * as React from 'react';
 import Navbar from './Navbar';
 import Paper from '@mui/material/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
-import {
-  Scheduler,
-  DayView,
-  Appointments,
-} from '@devexpress/dx-react-scheduler-material-ui';
+import { EditingState, IntegratedEditing, ViewState } from '@devexpress/dx-react-scheduler';
+import { Scheduler, WeekView, Appointments, AppointmentForm } from '@devexpress/dx-react-scheduler-material-ui';
 import { Button } from '@material-ui/core';
 import {useState} from 'react';
 import Popup from './Popup';
 
 const currentDate = '2022-05-14';
-const schedulerData = [
-  { startDate: '2022-05-14T09:45', endDate: '2022-05-14T11:00', title: 'Meeting' },
+const schedulerData = [{
+  title: 'Meeting',
+  startDate: '2022-05-14 9:45', 
+  endDate: '2022-05-14 13:00',
+  id: 1,
+   },
 ];
 
-export default function TimeTable() {
+export default function TimeTable() { 
     const [openPopup, setOpenPopup] = useState(false)
+
+    const saveAppointment = (data) => {
+      console.log('appointment saved');
+    }
   return (
     <div>
       <Navbar/>
-      <Paper>
         <Scheduler
         data={schedulerData}
         >
         <ViewState
             currentDate={currentDate}
         />
-        <DayView
+        <EditingState onCommitChanges={saveAppointment} />
+        <IntegratedEditing />
+        <WeekView
             startDayHour={9}
-            endDayHour={14}
+            endDayHour={17}
         />
         <Appointments />
+        <AppointmentForm />
         </Scheduler>
-    </Paper>
     <Button
         variant="outlined"
         color="primary"
