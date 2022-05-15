@@ -44,6 +44,12 @@ import { Radio } from '@mui/material';
 
 import { appointments } from './test';
 
+
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+
+
 const AREA_SELECT = ['대구광역시', '경산시']
 const DAY_SELECT = ['월', '화', '수', '목', '금', '토', '일']
 
@@ -108,6 +114,7 @@ const StyledFab = styled(Fab)(({ theme }) => ({
     right: theme.spacing(4),
   },
 }));
+
 
 class AppointmentFormContainerBasic extends React.PureComponent {
   constructor(props) {
@@ -189,6 +196,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       className: classes.textField,
     });
 
+    //날짜 및 시간 수정
     const pickerEditorProps = field => ({
       // keyboard: true,
       value: displayAppointmentData[field],
@@ -199,6 +207,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       inputFormat: 'DD/MM/YYYY HH:mm',
       onError: () => null,
     });
+
     const startDatePickerProps = pickerEditorProps('startDate');
     const endDatePickerProps = pickerEditorProps('endDate');
     const cancelChanges = () => {
@@ -209,14 +218,42 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       cancelAppointment();
     };
 
+    
+
+    const matchSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            user_id : "no",
+            face : e.target.face.value,
+            area : e.target.area.value,
+            day : e.target.day.value,
+            time : e.target.time.value,
+            free : e.target.pay.value,
+        }
+    
+        axios.post("http://localhost:5000/t_match/timetable", data)
+        .then(function(response){
+          console.log(response);
+          if(response.data.success){
+            alert("매칭 설정을 성공하였습니다.");
+            
+          }
+        }).catch(function(error){
+          alert("매칭 설정 실패!" + error);
+        });
+
+  
+    }
+
     return (
+        <form onSubmit={matchSubmit}>
       <AppointmentForm.Overlay
         visible={visible}
         target={target}
         fullSize
         onHide={onHide}
       >
-        <StyledDiv>
+        <StyledDiv /*일정추가팝업창 디자인*/>
           <div className={classes.header}>
             <IconButton className={classes.closeButton} onClick={cancelChanges} size="large">
               <Close color="action" />
@@ -355,6 +392,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
           </div>
           <div className={classes.buttonGroup}>
             {!isNewAppointment && (
+                // 편집 시 delete 버튼
               <Button
                 variant="outlined"
                 color="secondary"
@@ -368,6 +406,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
               </Button>
             )}
             <Button
+            // 새로운 일정 추가 시 Create 아니면 Save
               variant="outlined"
               color="primary"
               className={classes.button}
@@ -382,6 +421,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
           </div>
         </StyledDiv>
       </AppointmentForm.Overlay>
+      </form>
     );
   }
 }
@@ -444,15 +484,19 @@ export default class Curriculum extends React.PureComponent {
     });
   }
 
+  // 모든 수정 할 경우
   componentDidUpdate() {
     this.appointmentForm.update();
   }
 
+  // 연필, + 아이콘 눌렀을 경우
   onEditingAppointmentChange(editingAppointment) {
     this.setState({ editingAppointment });
   }
 
+  // 새로운 일정 추가 버튼 눌렀을 경우
   onAddedAppointmentChange(addedAppointment) {
+    console.log('appointment added');
     this.setState({ addedAppointment });
     const { editingAppointment } = this.state;
     if (editingAppointment !== undefined) {
@@ -463,10 +507,12 @@ export default class Curriculum extends React.PureComponent {
     this.setState({ editingAppointment: undefined, isNewAppointment: true });
   }
 
+  // 휴지통 아이콘 눌렀을 경우
   setDeletedAppointmentId(id) {
     this.setState({ deletedAppointmentId: id });
   }
 
+  // 연필 아이콘 누르고 편집창 닫을 경우
   toggleEditingFormVisibility() {
     const { editingFormVisible } = this.state;
     this.setState({
@@ -474,12 +520,15 @@ export default class Curriculum extends React.PureComponent {
     });
   }
 
+  // 휴지통 아이콘 눌렀을 경우 알림 문구 확인
   toggleConfirmationVisible() {
     const { confirmationVisible } = this.state;
     this.setState({ confirmationVisible: !confirmationVisible });
   }
 
+  // 일정 삭제 시키는 곳
   commitDeletedAppointment() {
+    console.log('appointment deleted');
     this.setState((state) => {
       const { data, deletedAppointmentId } = state;
       const nextData = data.filter(appointment => appointment.id !== deletedAppointmentId);
@@ -488,8 +537,11 @@ export default class Curriculum extends React.PureComponent {
     });
     this.toggleConfirmationVisible();
   }
-
+ 
+  // 추가, 수정, 삭제 시키는 곳
   commitChanges({ added, changed, deleted }) {
+    console.log('appointment saved');
+    
     this.setState((state) => {
       let { data } = state;
       if (added) {

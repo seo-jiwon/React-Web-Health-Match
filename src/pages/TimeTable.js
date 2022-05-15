@@ -16,12 +16,13 @@ const schedulerData = [{
    },
 ];
 
-export default function TimeTable() { 
+export default function TimeTable() {
     const [openPopup, setOpenPopup] = useState(false)
 
     const saveAppointment = (data) => {
       console.log('appointment saved');
     }
+
   return (
     <div>
       <Navbar/>
@@ -31,7 +32,7 @@ export default function TimeTable() {
         <ViewState
             currentDate={currentDate}
         />
-        <EditingState onCommitChanges={saveAppointment} />
+        <EditingState onCommitChanges={saveAppointment}/>
         <IntegratedEditing />
         <WeekView
             startDayHour={9}
