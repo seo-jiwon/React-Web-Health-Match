@@ -10,18 +10,17 @@
     font-size: 22px;
   }
   
-  table {
+  .table {
     width: 100%;
     margin-top: 10px;
     font-size: 15px;
-    border: solid 3px #186abb;
     border-collapse: collapse;
+    border: solid 3px #186abb;
   }
   
-  th,
-  td {
-    border: solid 2px #186abb;
+  .td {
     padding: 10px;
+    border: solid 2px #186abb;
   }
   
   .btns {

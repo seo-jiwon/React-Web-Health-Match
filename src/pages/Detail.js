@@ -52,18 +52,18 @@ const Detail = () => {
                     <div className='read_title'>
                         {data.title}
                     </div>
-                    <table>
+                    <table className="table">
                         <tbody>
                             <tr align="center" className='table_info'>
-                                <td width="15%">제목</td>
-                                <td width="20%">{data.title}</td>
-                                <td width="15%">작성일</td>
-                                <td width="20%">{data.write_date}</td>
-                                <td width="15%">작성자</td>
-                                <td width="15%">{data.writer}</td>
+                                <td className="td" width="15%">제목</td>
+                                <td className="td" width="20%">{data.title}</td>
+                                <td className="td" width="15%">작성일</td>
+                                <td className="td" width="20%">{data.write_date}</td>
+                                <td className="td" width="15%">작성자</td>
+                                <td className="td" width="15%">{data.writer}</td>
                             </tr>
                             <tr height="350px">
-                                <td colSpan="6">{data.content}</td>
+                                <td className="td" colSpan="6">{data.content}</td>
                             </tr>
                         </tbody>
                     </table>

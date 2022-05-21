@@ -218,41 +218,37 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       cancelAppointment();
     };
 
-    
-
     const matchSubmit = (e) => {
-        e.preventDefault();
-        const data = {
-            user_id : "no",
-            face : e.target.face.value,
-            area : e.target.area.value,
-            day : e.target.day.value,
-            time : e.target.time.value,
-            free : e.target.pay.value,
-        }
-    
-        axios.post("http://localhost:5000/t_match/timetable", data)
-        .then(function(response){
-          console.log(response);
-          if(response.data.success){
-            alert("매칭 설정을 성공하였습니다.");
-            
-          }
-        }).catch(function(error){
-          alert("매칭 설정 실패!" + error);
-        });
-
+      e.preventDefault();
+      const data = {
+          t_id : "no",
+          title: "no",
+          face : e.target.face.value,
+          area : e.target.area.value,
+          day : e.target.day.value,
+          time : "no",
+          free : e.target.pay.value,
+      }
   
-    }
+      axios.post("http://localhost:5000/t_match/timetable", data)
+      .then(function(response){
+        console.log(response);
+        if(response.data.success){
+          alert("강사 매칭 조건 설정을 성공하였습니다.");
+        }
+      }).catch(function(error){
+        alert("강사 매칭 조건 설정 실패!" + error);
+      });
+  }
 
     return (
-        <form onSubmit={matchSubmit}>
       <AppointmentForm.Overlay
         visible={visible}
         target={target}
         fullSize
         onHide={onHide}
       >
+        <form onSubmit={matchSubmit}>
         <StyledDiv /*일정추가팝업창 디자인*/>
           <div className={classes.header}>
             <IconButton className={classes.closeButton} onClick={cancelChanges} size="large">
@@ -420,8 +416,9 @@ class AppointmentFormContainerBasic extends React.PureComponent {
             </Button>
           </div>
         </StyledDiv>
+        </form>
       </AppointmentForm.Overlay>
-      </form>
+
     );
   }
 }

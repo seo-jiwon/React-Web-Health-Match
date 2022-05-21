@@ -103,8 +103,6 @@ export default function Popup(props) {
               }).catch(function(error){
                 alert("강사 매칭 조건 설정 실패!" + error);
               });
-      
-        
           }
 
     return (
