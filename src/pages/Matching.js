@@ -121,7 +121,7 @@ export default function Matching() {
           console.log(response);
           if(response.data.success){
             alert("매칭 설정을 성공하였습니다.");
-            navigate('/');
+            navigate('/matchinglist');
           }
         }).catch(function(error){
           alert("매칭 설정 실패!" + error);
@@ -131,6 +131,10 @@ export default function Matching() {
     }
       
     const [value, onChange] = useState('10:00');
+
+    // const goMatchingList  = () => {
+    //     document.location.href('../matchinglist')
+    // }
 
     return (
         <div>
@@ -264,7 +268,7 @@ export default function Matching() {
                 </FormControlLabel>
             </RadioGroup>
             <Box className="Box">
-                <Button variant="outlined" color="primary" size="small" onClick={getData} type="submit">완료</Button>
+                <Button variant="outlined" color="primary" size="small" type="submit" onClick={getData}>완료</Button>
             </Box>
             </div>
             </main>

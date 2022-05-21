@@ -24,7 +24,7 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Healthmatching<FitnessCenterIcon />
             <Button color="inherit" href="/">Home</Button>
-            <Button color="inherit" href="/matching">Mathing</Button>
+            <Button color="inherit" href="/matching">Matching</Button>
             <Button color="inherit" href="/community">Community</Button>
           </Typography>
           <div>
