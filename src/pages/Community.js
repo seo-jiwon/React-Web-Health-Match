@@ -26,7 +26,7 @@ function ListItem({ post_id, title, writer, write_date }) {
     return (
         <Link to={{
             pathname:"/detail",
-            search:`?board_id=${post_id}`
+            search:`?post_id=${post_id}`
         }} style={{ textDecoration: 'none', color: 'black'}}>
             <div className="list-item">
                 <div className="post_id">{post_id}</div>

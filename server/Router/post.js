@@ -27,6 +27,15 @@ router.get('/community', (req,res) => {
     })
 })
 
+// 상세 글 조회
+router.get('/detail', (req, res) => {
+    database.query('SELECT * FROM post WHERE post_id=?', [req.query.post_id], (err, result) => {
+        if (err) res.send(err);
+        else {
+            res.send(result);
+            console.log("상세 글 조회");
+        }
+    })
+})
         
 module.exports = router;
-

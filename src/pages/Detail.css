@@ -1,0 +1,41 @@
+.Post {
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  .read_title {
+    margin-top: 0.5rem;
+    font-size: 22px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 15px;
+    border: solid 3px #186abb;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    border: solid 2px #186abb;
+    padding: 10px;
+  }
+  
+  .btns {
+    /* display: flex; */
+    width: 80%;
+    float: right;
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .btn {
+    height: 35px;
+    margin-left: 20px;
+    padding-right: 5px;
+  }
+
+  
