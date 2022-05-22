@@ -20,5 +20,6 @@ export default function Router(){
         { path : 'matchinglist', element:<MatchingList/>},
         { path : 'timetable', element:<TimeTable/>},
         { path : 'curriculum', element:<Curriculum/>},
+        { path : 'update', element : <Communityupdate/>}
     ]);
 }

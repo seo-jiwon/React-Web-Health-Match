@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
 import './Detail.css';
@@ -91,7 +91,9 @@ const Detail = () => {
                         </tbody>
                     </table>
                     <div className='btns'>
-                    <Button className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
+                    <Link to='/update' state = {{data : data}}>
+                        <Button className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
+                    </Link>
                     <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
                     </div>
                 </div>
