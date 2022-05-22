@@ -35,6 +35,8 @@ import Notes from '@mui/icons-material/Notes';
 import Close from '@mui/icons-material/Close';
 import CalendarToday from '@mui/icons-material/CalendarToday';
 import Create from '@mui/icons-material/Create';
+import PaidIcon from '@mui/icons-material/Paid';
+import FaceIcon from '@mui/icons-material/Face';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import NativeSelect from '@mui/material/NativeSelect';
@@ -46,6 +48,7 @@ import { appointments } from './test';
 
 
 import axios from 'axios';
+import Paid from '@mui/icons-material/Paid';
 
 const AREA_SELECT = ['대구광역시', '경산시']
 const DAY_SELECT = ['월', '화', '수', '목', '금', '토', '일']
@@ -63,11 +66,12 @@ const classes = {
   icon: `${PREFIX}-icon`,
   textField: `${PREFIX}-textField`,
   addButton: `${PREFIX}-addButton`,
+  formControl: `${PREFIX}-formControl`,
 };
 
 const StyledDiv = styled('div')(({ theme }) => ({
   [`& .${classes.icon}`]: {
-    margin: theme.spacing(2, 0),
+    margin: theme.spacing(3, 0),
     marginRight: theme.spacing(2),
   },
   [`& .${classes.header}`]: {
@@ -93,7 +97,7 @@ const StyledDiv = styled('div')(({ theme }) => ({
   },
   [`& .${classes.wrapper}`]: {
     display: 'flex',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     padding: theme.spacing(1, 0),
   },
   [`& .${classes.buttonGroup}`]: {
@@ -103,6 +107,10 @@ const StyledDiv = styled('div')(({ theme }) => ({
   },
   [`& .${classes.button}`]: {
     marginLeft: theme.spacing(2),
+  },
+  [`& .${classes.formControl}`]: {
+    marginRight: theme.spacing(5),
+    minWidth: 150,
   },
 }));
 const StyledFab = styled(Fab)(({ theme }) => ({
@@ -195,6 +203,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       ? () => this.commitAppointment('added')
       : () => this.commitAppointment('changed');
 
+    //title, notes 수정 시 입력 값 그대로
     const textEditorProps = field => ({
       variant: 'outlined',
       onChange: ({ target: change }) => this.changeAppointment({
@@ -231,7 +240,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       e.preventDefault();
       const data = {
           t_id : "no",
-          title: "no",
+          title: e.target.title.value,
           face : e.target.face.value,
           area : e.target.area.value,
           day : e.target.day.value,
@@ -268,8 +277,11 @@ class AppointmentFormContainerBasic extends React.PureComponent {
             <div className={classes.wrapper}>
               <Create className={classes.icon} color="action" />
               <TextField
-                {...textEditorProps('title')}
-              />
+               id="title"
+               name="title"
+                {...textEditorProps('Title')}
+                >
+              </TextField>
             </div>
             <div className={classes.wrapper}>
               <CalendarToday className={classes.icon} color="action" />
@@ -291,126 +303,120 @@ class AppointmentFormContainerBasic extends React.PureComponent {
               </LocalizationProvider>
             </div>
             <div className={classes.wrapper}>
-                <RadioGroup row>
-                        <FormControlLabel
-                            value="1"
-                            control={<Radio />}
-                            id="facetoface"
-                            name="face"
-                            label="대면">
-                            {
-                                AREA_SELECT.map((facetoface, idx) => {
-                                return <option key={idx} value={facetoface}>{facetoface}</option>
-                            })
-                        }
-                        </FormControlLabel>
-                        <FormControlLabel
-                            value="0"
-                            control={<Radio />}
-                            id="nonfacetoface"
-                            name="face"
-                            label="비대면">
-                            {
-                                AREA_SELECT.map((nonfacetoface, idx) => {
-                                return <option key={idx} value={nonfacetoface}>{nonfacetoface}</option>
-                            })
-                        }
-                        </FormControlLabel>
-                </RadioGroup>
-            </div>
-            <LocationOn className={classes.icon} color="action" />
-
-            <div className={classes.wrapper}>
-              <FormControl className={classes.formControl}>
-            <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                지역
-            </InputLabel>
-            <NativeSelect
-                className={classes.selectEmpty}
-                id="area"
-                name="area"
-            >
-                <option value=''></option>
-                {
-                AREA_SELECT.map((area, idx) => {
-                    return <option key={idx} value={area}>{area}</option>
-                })
-                }
-            </NativeSelect>
-            </FormControl>
-            </div>
-            <div className={classes.wrapper}>
-            <FormControl className={classes.formControl}>
-                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                        요일
-                    </InputLabel>
-                    <NativeSelect
-                        className={classes.selectEmpty}
-                        id="day"
-                        name="day"
-                    >
-                        <option value=''></option>
-                        {
-                        DAY_SELECT.map((day, idx) => {
-                            return <option key={idx} value={day}>{day}요일</option>
-                        })
-                        }
-                    </NativeSelect>
-                    </FormControl>
-            </div>
-            <div className={classes.wrapper}>
-            <FormControl className={classes.formControl}>
-            <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                시간
-            </InputLabel>
-            <NativeSelect
-                className={classes.selectEmpty}
-                id="time"
-                name="time"
-            >
-                <option value=''></option>
-                {
-                TIME_SELECT.map((time, idx) => {
-                    return <option key={idx} value={time}>{time}시</option>
-                })
-                }
-            </NativeSelect>
-            </FormControl>
-            </div>
-            <div className={classes.wrapper}>
-            <RadioGroup row>
-                <FormControlLabel
-                    value="0"
-                    control={<Radio />}
-                    id="free"
-                    name="pay"
-                    label="무료">
-                    {
-                        AREA_SELECT.map((free, idx) => {
-                        return <option key={idx} value={free}>{free}</option>
-                    })
-                }
-                </FormControlLabel>
+              <FaceIcon className={classes.icon} color="action"/>
+              <RadioGroup row>
                 <FormControlLabel
                     value="1"
                     control={<Radio />}
-                    id="nofree"
-                    name="pay"
-                    label="유료">
+                    id="facetoface"
+                    name="face"
+                    label="대면">
                     {
-                        AREA_SELECT.map((nofree, idx) => {
-                        return <option key={idx} value={nofree}>{nofree}</option>
+                        AREA_SELECT.map((facetoface, idx) => {
+                        return <option key={idx} value={facetoface}>{facetoface}</option>
                     })
                 }
                 </FormControlLabel>
-            </RadioGroup>
+                <FormControlLabel
+                    value="0"
+                    control={<Radio />}
+                    id="nonfacetoface"
+                    name="face"
+                    label="비대면">
+                    {
+                        AREA_SELECT.map((nonfacetoface, idx) => {
+                        return <option key={idx} value={nonfacetoface}>{nonfacetoface}</option>
+                    })
+                }
+                </FormControlLabel>
+              </RadioGroup>
+            </div>
+            <div>
+              <LocationOn className={classes.icon} color="action" />
+              <FormControl className={classes.formControl}>
+                <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    지역
+                </InputLabel>
+                <NativeSelect
+                    id="area"
+                    name="area"
+                >
+                    <option value=''></option>
+                    {
+                    AREA_SELECT.map((area, idx) => {
+                        return <option key={idx} value={area}>{area}</option>
+                    })
+                    }
+                </NativeSelect>
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    요일
+                </InputLabel>
+                <NativeSelect
+                    id="day"
+                    name="day"
+                >
+                    <option value=''></option>
+                    {
+                    DAY_SELECT.map((day, idx) => {
+                        return <option key={idx} value={day}>{day}요일</option>
+                    })
+                    }
+                </NativeSelect>
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    시간
+                </InputLabel>
+                <NativeSelect
+                    id="time"
+                    name="time"
+                >
+                    <option value=''></option>
+                    {
+                    TIME_SELECT.map((time, idx) => {
+                        return <option key={idx} value={time}>{time}시</option>
+                    })
+                    }
+                </NativeSelect>
+              </FormControl>
+            </div>
+            <div className={classes.wrapper}>
+              <PaidIcon className={classes.icon} color="action" />
+              <RadioGroup row>
+                  <FormControlLabel
+                      value="0"
+                      control={<Radio />}
+                      id="free"
+                      name="pay"
+                      label="무료">
+                      {
+                          AREA_SELECT.map((free, idx) => {
+                          return <option key={idx} value={free}>{free}</option>
+                      })
+                  }
+                  </FormControlLabel>
+                  <FormControlLabel
+                      value="1"
+                      control={<Radio />}
+                      id="nofree"
+                      name="pay"
+                      label="유료">
+                      {
+                          AREA_SELECT.map((nofree, idx) => {
+                          return <option key={idx} value={nofree}>{nofree}</option>
+                      })
+                  }
+                  </FormControlLabel>
+              </RadioGroup>
             </div>
             <div className={classes.wrapper}>
               <Notes className={classes.icon} color="action" />
               <TextField
                 {...textEditorProps('notes')}
                 multiline
-                rows="6"
+                rows="3"
               />
             </div>
           </div>
@@ -457,7 +463,7 @@ export default class Curriculum extends React.PureComponent {
     super(props);
     this.state = {
       data: appointments,
-      currentDate: '2018-06-27',
+      currentDate: '2022-05-22',
       confirmationVisible: false,
       editingFormVisible: false,
       deletedAppointmentId: undefined,
