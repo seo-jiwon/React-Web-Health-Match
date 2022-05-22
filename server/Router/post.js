@@ -37,5 +37,33 @@ router.get('/detail', (req, res) => {
         }
     })
 })
+
+// 게시글 수정 
+router.post('/update', (req, res) => {
+    database.query(
+        "UPDATE post SET title = ?, content = ?, write_date = ? where post_id = ? ", [req.body.title, req.body.content, req.body.write_date, req.body.post_id ],
+    function(err, data){
+        if(err){
+            console.log(err);
+        } else{
+            res.send({success : 1});
+            console.log("게시글 수정 성공");
+        }
+    });
+});
+
+// 게시글 삭제
+    router.post("/delete", (req, res) => {
+        database.query(
+            "DELETE FROM post where post_id = ?", [req.body.post_id],
+        function(err, data){
+            if(err){
+                console.log(err);
+            } else{
+                res.send({success : 1});
+                console.log("게시글 삭제");
+            }
+        });
+    });
         
 module.exports = router;

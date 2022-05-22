@@ -33,6 +33,29 @@ function useFetch(url, id) {
     return [data, loading];
 }
 
+function deletepost(id) {
+    const data = {
+        post_id : id
+    }
+
+    console.log(data)
+
+    axios.post("http://localhost:5000/post/delete", data)
+    .then(function(response){
+      console.log(response);
+      if(response.data.success){
+        alert("게시글 삭제가 성공하였습니다.");
+        window.location.replace('/community');
+      }
+    }).catch(function(error){
+      alert("게시글 삭제 실패!" + error);
+    });
+}
+
+function onUpdate(data){
+    return 
+}
+
 const Detail = () => {
 
     const [searchParams] = useSearchParams();
@@ -68,8 +91,8 @@ const Detail = () => {
                         </tbody>
                     </table>
                     <div className='btns'>
-                        <Button className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
-                        <Button className="btn" variant="outlined" startIcon={<DeleteIcon />}>Delete</Button>
+                    <Button className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
+                    <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
                     </div>
                 </div>
             </div>
