@@ -8,6 +8,7 @@ import Matching from "./pages/Matching";
 import MatchingList from "./pages/MatchingList";
 import TimeTable from "./pages/TimeTable";
 import Curriculum from "./pages/Curriculum";
+import Communityupdate from "./pages/Communityupdate";
 
 export default function Router(){
     return useRoutes([
