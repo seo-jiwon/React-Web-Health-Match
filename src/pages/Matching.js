@@ -71,33 +71,6 @@ export default function Matching() {
 
     const getData = useCallback(() => {
 
-      //선택 확인 소스코드 넣기
-     // let faceCheck = document.getElementById("facetoface").value
-    //   let noFaceCheck = document.getElementById("nofacetoface").value
-    //   let areaCheck = document.getElementById("area").value
-    //   let dayCheck = document.getElementById("day").value
-    //   let timeCheck = document.getElementById("time").value
-    //   let freeCheck = document.getElementById("free").value
-    //   let noFreeCheck = document.getElementById("nofree").value
-    //   let check = true
-
-
-
-    //   if(faceCheck === false && noFaceCheck === false) {
-    //       document.getElementById("faceCheckError").innerHTML="대면 여부를 선택하세요."
-    //       document.getElementById("noFaceCheckError").innerHTML=""
-    //   } else {
-    //       document.getElementById("faceCheckError").innerHTML=""
-    //       document.getElementById("noFaceCheckError").innerHTML=""
-    //   }
-
-    //   if (noFaceCheck === true) {
-    //       areaCheck.check = false
-    //   }
-
-     // if (!faceCheck.value) return alert("대면여부선택");
-
-      //
         const date = `${checkedFace} ${searchArea} ${searchDay} ${searchTime} ${checkedPay}`
         console.log(date)
       }, [checkedFace, searchArea, searchDay, searchTime, checkedPay])
@@ -108,7 +81,6 @@ export default function Matching() {
       const matchSubmit = (e) => {
         e.preventDefault();
         const data = {
-            user_id : "no",
             face : e.target.face.value,
             area : e.target.area.value,
             day : e.target.day.value,
@@ -116,7 +88,7 @@ export default function Matching() {
             free : e.target.pay.value,
         }
     
-        axios.post("http://localhost:5000/user_match/matching", data)
+        axios.post("http://localhost:5000/u_match/matching", data)
         .then(function(response){
           console.log(response);
           if(response.data.success){
@@ -126,15 +98,9 @@ export default function Matching() {
         }).catch(function(error){
           alert("매칭 설정 실패!" + error);
         });
-
-  
     }
       
     const [value, onChange] = useState('10:00');
-
-    // const goMatchingList  = () => {
-    //     document.location.href('../matchinglist')
-    // }
 
     return (
         <div>
