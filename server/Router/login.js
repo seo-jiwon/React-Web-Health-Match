@@ -8,8 +8,10 @@ router.post("/signup", (req, res) => {
     function(err, data){
         if(err){
             console.log(err);
+            console.log("회원가입 실패")
         } else{
             res.send({success : 1});
+            console.log("회원가입 성공")
         }
     });
 });

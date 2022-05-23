@@ -1,38 +1,54 @@
 import React, { useState } from "react";
 import Navbar from './Navbar';
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 import './SignUp.css'
+import axios from "axios";
 
 export default function SignUp() {
-  const { register, watch, handleSubmit} = useForm();
-    const onValid = (data) => console.log(data, "onvalid");
-    const onInvalid = (data) => console.log(data, "onInvalid");
+    const { register, watch, handleSubmit, errors} = useForm();
+
+
+    const onValid = (data) => {
+        const {email, pw} = data;
+        axios.post("http://localhost:5000/login/signup", {email, pw})
+        .then(response => {
+            console.log(response.data, "onvalid");
+            alert("회원가입을 성공하였습니다.");
+        })
+        .catch(error => {
+            console.log(error.data, "onInvalid");
+            alert("회원가입을 실패하였습니다.");
+        });
+    };
     
     return (
         <div className="SignUp">
             <Navbar />
             <div className="container">
-                <form className="signup-form" onSubmit={handleSubmit(onValid, onInvalid)}>
+                <form className="signup-form" onSubmit={handleSubmit(onValid)}>
                     <h1 className="signup-h1">SignUp</h1>
                     id
                     <input
-                        {...register("id", { required: "id error", minLength: 5 } )}
+                        {...register("email", { required: "email error" } )}
                         type = "email"
-                        placeholder = "ID"
+                        placeholder = "email"
                         />
                     password
                     <input
-                        {...register("password", { required: "password error", minLength: 5 })}
+                        {...register("pw", { required: "pw error",
+                        minLength:{
+                            value:8,
+                            message:"비밀번호는 8자 이상이어야 합니다,"} })}
                         type = "password"
-                        placeholder = "Password"
+                        placeholder = "pw"
                         />
                     check password
-                    <input
+                    {/* <input
                         {...register("passwordCheck", { required: "password check error" })}
-                        type = "passwordcheck"
+                        type = "password"
                         placeholder = "Password Check"
-                        />
+                        /> */}
                     <input className="signup-btn" type="submit" value="SignUp" />
                 </form>
             </div>
