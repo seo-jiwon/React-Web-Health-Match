@@ -16,6 +16,16 @@ router.post("/timetable", (req, res) => {
     });
 });
 
+// 강사 목록 조회 성공
+router.get('/matchinglist', (req,res) => {
+    database.query('SELECT face, area, day, time, free FROM t_match', (err, result) => {
+        if(err) res.send(err);
+        else{
+            res.send(result);
+            console.log("강사 목록 조회 성공!");
+        }
+    })
+})
 
 module.exports = router;
 

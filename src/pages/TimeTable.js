@@ -240,7 +240,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       e.preventDefault();
       const data = {
           t_id : "no",
-          title: e.target.title.value,
+          title: "no",
           face : e.target.face.value,
           area : e.target.area.value,
           day : e.target.day.value,
@@ -306,7 +306,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
               <FaceIcon className={classes.icon} color="action"/>
               <RadioGroup row>
                 <FormControlLabel
-                    value="1"
+                    value="대면"
                     control={<Radio />}
                     id="facetoface"
                     name="face"
@@ -318,7 +318,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
                 }
                 </FormControlLabel>
                 <FormControlLabel
-                    value="0"
+                    value="비대면"
                     control={<Radio />}
                     id="nonfacetoface"
                     name="face"
@@ -386,7 +386,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
               <PaidIcon className={classes.icon} color="action" />
               <RadioGroup row>
                   <FormControlLabel
-                      value="0"
+                      value="무료"
                       control={<Radio />}
                       id="free"
                       name="pay"
@@ -398,7 +398,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
                   }
                   </FormControlLabel>
                   <FormControlLabel
-                      value="1"
+                      value="유료"
                       control={<Radio />}
                       id="nofree"
                       name="pay"

@@ -141,11 +141,10 @@ export default function Matching() {
             <Navbar />
             <form onSubmit={matchSubmit}>
             <main className="main">
-            <Timekeeper />
             <div className="A">
             <RadioGroup row>
                 <FormControlLabel
-                    value="1"
+                    value="대면"
                     defaultValue={checkedFace}
                     control={<Radio />}
                     onChange={(e) => handleChange(e, 'facetoface')}
@@ -159,7 +158,7 @@ export default function Matching() {
                 }
                 </FormControlLabel>
                 <FormControlLabel
-                    value="0"
+                    value="비대면"
                     defaultValue={checkedFace}
                     control={<Radio />}
                     onChange={(e) => handleChange(e, 'nonfacetoface')}
@@ -239,7 +238,7 @@ export default function Matching() {
 
             <RadioGroup row>
                 <FormControlLabel
-                    value="0"
+                    value="무료"
                     defaultValue={checkedPay}
                     control={<Radio />}
                     onChange={(e) => handleChange(e, 'free')}
@@ -253,7 +252,7 @@ export default function Matching() {
                 }
                 </FormControlLabel>
                 <FormControlLabel
-                    value="1"
+                    value="유료"
                     defaultValue={checkedPay}
                     control={<Radio />}
                     onChange={(e) => handleChange(e, 'nofree')}

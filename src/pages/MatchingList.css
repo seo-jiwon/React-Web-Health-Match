@@ -1,0 +1,102 @@
+.list-item {
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  Link :visited {
+    color: black;
+  }
+  
+  .list-item+.list-item {
+    border-top: 1px solid #d3d3d3;
+  }
+  
+  .t_id {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .curriculum {
+    flex: 1;
+    margin-left: 8.5rem;
+    word-break: break-all;
+  }
+
+  .face {
+    margin-left: 1rem;
+    margin-right: 2.3rem;
+  }
+
+  .area {
+    margin-left: 1rem;
+    margin-right: 2.5rem;
+  }
+
+  .day {
+    margin-left: 1rem;
+    margin-right: 3.1rem;
+  }
+
+  .time {
+    margin-left: 1rem;
+    margin-right: 3.2rem;
+  }
+  
+  .free {
+    margin-left: 1rem;
+    margin-right: 2rem;
+  }
+  
+  .list-template {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+    
+    .list-title {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      font-weight: 600;
+      color: #232b43;
+      border-bottom: solid;
+    }
+  
+    .button{
+      margin-left: 5;
+    }
+  
+    .head-wrapper {
+      margin: 0 auto;
+      display: flex;
+      width: 95%;
+      font-weight: 600;
+      border-bottom: 1px solid #d3d3d3;
+    }
+    
+    span {
+      margin: 1rem;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      text-align: center;
+    }
+    
+    .title-column {
+      flex: 1;
+    }
+    
+    .list-wrapper {
+      margin: 0 auto;
+      width: 95%;
+      font-weight: 400;
+      font-size: 0.7rem;
+    }
+    
+    .delete-btn {
+      width: 70px;
+    }
+    
