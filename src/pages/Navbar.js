@@ -55,7 +55,7 @@ export default function Navbar() {
               <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
             </Menu>
           </div>
-          <Button color="inherit" href="/">Login</Button>
+          <Button color="inherit" href="/login">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
