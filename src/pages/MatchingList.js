@@ -33,7 +33,7 @@ function ListItem({ t_id, title, face, area, day, time, free }) {
                 <div className="day">{day}</div>
                 <div className="time">{time}</div>
                 <div className="free">{free}</div>
-                <Button className="button" size="small">선택</Button>
+                <Button className="button" size="small" href="/matchingcomplete">선택</Button>
             </div>
         </div>
     )

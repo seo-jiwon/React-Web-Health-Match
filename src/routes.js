@@ -9,6 +9,7 @@ import MatchingList from "./pages/MatchingList";
 import TimeTable from "./pages/TimeTable";
 import Curriculum from "./pages/Curriculum";
 import Communityupdate from "./pages/Communityupdate";
+import MatchingComplete from "./pages/MatchingComplete";
 
 export default function Router(){
     return useRoutes([
@@ -21,6 +22,7 @@ export default function Router(){
         { path : 'matchinglist', element:<MatchingList/>},
         { path : 'timetable', element:<TimeTable/>},
         { path : 'curriculum', element:<Curriculum/>},
-        { path : 'update', element : <Communityupdate/>}
+        { path : 'update', element : <Communityupdate/>},
+        { path : 'matchingcomplete', element : <MatchingComplete/>}
     ]);
 }
