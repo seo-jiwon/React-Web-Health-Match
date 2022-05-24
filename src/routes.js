@@ -12,6 +12,7 @@ import Communityupdate from "./pages/Communityupdate";
 import MatchingComplete from "./pages/MatchingComplete";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Payment from "./pages/Payment";
 
 export default function Router(){
     return useRoutes([
@@ -27,6 +28,7 @@ export default function Router(){
         { path : 'update', element : <Communityupdate/>},
         { path : 'matchingcomplete', element : <MatchingComplete/>},
         { path : 'login', element : <Login/>},
-        { path : 'signup', element : <SignUp/>}
+        { path : 'signup', element : <SignUp/>},
+        { path : 'payment', element : <Payment/>},
     ]);
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Navbar from './Navbar';
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useForm, useFormState } from "react-hook-form";
 import './SignUp.css'
 import axios from "axios";
 
 export default function SignUp() {
     const { register, watch, handleSubmit, errors} = useForm();
+    const navigate = useNavigate();
 
 
     const onValid = (data) => {
@@ -15,6 +16,7 @@ export default function SignUp() {
         .then(response => {
             console.log(response.data, "onvalid");
             alert("회원가입을 성공하였습니다.");
+            navigate('/login');
         })
         .catch(error => {
             console.log(error.data, "onInvalid");
@@ -28,13 +30,13 @@ export default function SignUp() {
             <div className="container">
                 <form className="signup-form" onSubmit={handleSubmit(onValid)}>
                     <h1 className="signup-h1">SignUp</h1>
-                    id
+                    {/* id */}
                     <input
                         {...register("email", { required: "email error" } )}
                         type = "email"
                         placeholder = "email"
                         />
-                    password
+                    {/* password */}
                     <input
                         {...register("pw", { required: "pw error",
                         minLength:{
@@ -43,7 +45,7 @@ export default function SignUp() {
                         type = "password"
                         placeholder = "pw"
                         />
-                    check password
+                    {/* check password */}
                     {/* <input
                         {...register("passwordCheck", { required: "password check error" })}
                         type = "password"
