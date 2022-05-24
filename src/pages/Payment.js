@@ -34,7 +34,7 @@ export default function Payment() {
                     </TableBody>
                     <TableBody>
                         <TableCell>
-                            <Button onClick={() => alert("결제가 완료되었습니다.")}>
+                            <Button onClick={() => alert("결제가 완료되었습니다. \n 매칭이 완료되었습니다.")} href="/matchingcomplete">
                                 <h2>결제하기</h2>
                             </Button>
                         </TableCell>

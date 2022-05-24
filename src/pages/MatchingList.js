@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MatchingList.css'
 import Navbar from './Navbar';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function useFetch(url) {
@@ -21,9 +22,34 @@ function useFetch(url) {
     return data;
 }
 
-function ListItem({ t_id, title, face, area, day, time, free }) {
+// const matchSubmit = (e) => {
+//     e.preventDefault();
+//     const data = {
+//         t_name: "no",
+//         curri: "no",
+//         face : e.target.face.value,
+//         area : e.target.area.value,
+//         day : e.target.day.value,
+//         time : e.target.time.value,
+//         free : e.target.pay.value,
+//     }
 
+//     axios.post("http://localhost:5000/select_t/matchinglist", data)
+//     .then(function(response){
+//       console.log(response);
+//       if(response.data.success){
+//         alert("강사 매칭을 성공하였습니다.");
+//       }
+//     }).catch(function(error){
+//       alert("강사 매칭 실패!" + error);
+//     });
+// }
+
+function ListItem({ face, area, day, time, free }) {
+if (free === "무료")
+{
     return (
+        // <form onSubmit={matchSubmit}>
         <div style={{ textDecoration: 'none', color: 'black'}}>
             <div className="list-item">
                 <div className="t_id">강사명</div>
@@ -33,10 +59,30 @@ function ListItem({ t_id, title, face, area, day, time, free }) {
                 <div className="day">{day}</div>
                 <div className="time">{time}</div>
                 <div className="free">{free}</div>
-                <Button className="button" size="small" href="/matchingcomplete">선택</Button>
+                <Button className="button" size="small" onClick={() => alert("매칭이 완료되었습니다.")} href="/matchingcomplete" type="submit">선택</Button>
             </div>
         </div>
+        // </form>
     )
+}
+if (free==="유료") {
+    return (
+        // <form onSubmit={matchSubmit}>
+        <div style={{ textDecoration: 'none', color: 'black'}}>
+            <div className="list-item">
+                <div className="t_id">강사명</div>
+                <div className="curriculum">커리큘럼</div>
+                <div className="face">{face}</div>
+                <div className="area">{area}</div>
+                <div className="day">{day}</div>
+                <div className="time">{time}</div>
+                <div className="free">{free}</div>
+                <Button className="button" size="small" onClick={() => alert("결제창으로 넘어갑니다.")} href="/payment" type="submit">선택</Button>
+            </div>
+        </div>
+        // </form>
+        )
+    }
 }
 
 export default function MatchingList() {
