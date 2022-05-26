@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const database = require("../database");
 
-// 강사 사용자 매칭 조건 설정 
+// 강사 매칭 조건 설정 (TimeTable이용)
 router.post("/timetable", (req, res) => {
     database.query(
         "INSERT INTO t_match(t_id, title, face, area, day, time, free) values (?, ?, ?, ?, ?, ?, ?)", [req.body.t_id, req.body.title ,req.body.face, req.body.area, req.body.day, req.body.time, req.body.free],

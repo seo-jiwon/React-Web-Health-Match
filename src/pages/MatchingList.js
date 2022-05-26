@@ -49,7 +49,6 @@ function ListItem({ select_id, face, area, day, time, free }) {
     if (free === "무료")
     {
         return (
-            // <form onSubmit={matchSubmit}>
             <div style={{ textDecoration: 'none', color: 'black'}}>
                 <div className="list-item">
                     <div className="t_id">{select_id}</div>
@@ -62,12 +61,10 @@ function ListItem({ select_id, face, area, day, time, free }) {
                     <Button className="button" size="small" onClick={() => alert("매칭이 완료되었습니다.")} href="/matchingcomplete" type="submit">선택</Button>
                 </div>
             </div>
-            // </form>
         )
     }
     if (free==="유료") {
         return (
-            // <form onSubmit={matchSubmit}>
             <div style={{ textDecoration: 'none', color: 'black'}}>
                 <div className="list-item">
                     <div className="t_id">{select_id}</div>
@@ -80,7 +77,6 @@ function ListItem({ select_id, face, area, day, time, free }) {
                     <Button className="button" size="small" onClick={() => alert("결제창으로 넘어갑니다.")} href="/payment" type="submit">선택</Button>
                 </div>
             </div>
-            // </form>
         )
     }
 }
