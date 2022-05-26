@@ -12,7 +12,7 @@ export default function Login() {
     
     const onValid = (data) => {
         const {email, pw} = data;
-        axios.post("http://localhost:5000/login/signin", {email, pw})
+        axios.post("http://localhost:5000/users/signin", {email, pw})
         .then(response => {
             console.log(response.data, "onvalid");
             alert("로그인을 성공하였습니다.");
