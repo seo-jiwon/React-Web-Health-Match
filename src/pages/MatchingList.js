@@ -45,42 +45,42 @@ function useFetch(url) {
 //     });
 // }
 
-function ListItem({ face, area, day, time, free }) {
-if (free === "무료")
-{
-    return (
-        // <form onSubmit={matchSubmit}>
-        <div style={{ textDecoration: 'none', color: 'black'}}>
-            <div className="list-item">
-                <div className="t_id">강사명</div>
-                <div className="curriculum">커리큘럼</div>
-                <div className="face">{face}</div>
-                <div className="area">{area}</div>
-                <div className="day">{day}</div>
-                <div className="time">{time}</div>
-                <div className="free">{free}</div>
-                <Button className="button" size="small" onClick={() => alert("매칭이 완료되었습니다.")} href="/matchingcomplete" type="submit">선택</Button>
+function ListItem({ select_id, face, area, day, time, free }) {
+    if (free === "무료")
+    {
+        return (
+            // <form onSubmit={matchSubmit}>
+            <div style={{ textDecoration: 'none', color: 'black'}}>
+                <div className="list-item">
+                    <div className="t_id">{select_id}</div>
+                    <Button className="curriculum" size="small">커리큘럼</Button>
+                    <div className="face">{face}</div>
+                    <div className="area">{area}</div>
+                    <div className="day">{day}</div>
+                    <div className="time">{time}</div>
+                    <div className="free">{free}</div>
+                    <Button className="button" size="small" onClick={() => alert("매칭이 완료되었습니다.")} href="/matchingcomplete" type="submit">선택</Button>
+                </div>
             </div>
-        </div>
-        // </form>
-    )
-}
-if (free==="유료") {
-    return (
-        // <form onSubmit={matchSubmit}>
-        <div style={{ textDecoration: 'none', color: 'black'}}>
-            <div className="list-item">
-                <div className="t_id">강사명</div>
-                <div className="curriculum">커리큘럼</div>
-                <div className="face">{face}</div>
-                <div className="area">{area}</div>
-                <div className="day">{day}</div>
-                <div className="time">{time}</div>
-                <div className="free">{free}</div>
-                <Button className="button" size="small" onClick={() => alert("결제창으로 넘어갑니다.")} href="/payment" type="submit">선택</Button>
+            // </form>
+        )
+    }
+    if (free==="유료") {
+        return (
+            // <form onSubmit={matchSubmit}>
+            <div style={{ textDecoration: 'none', color: 'black'}}>
+                <div className="list-item">
+                    <div className="t_id">{select_id}</div>
+                    <Button className="curriculum" size="small">커리큘럼</Button>
+                    <div className="face">{face}</div>
+                    <div className="area">{area}</div>
+                    <div className="day">{day}</div>
+                    <div className="time">{time}</div>
+                    <div className="free">{free}</div>
+                    <Button className="button" size="small" onClick={() => alert("결제창으로 넘어갑니다.")} href="/payment" type="submit">선택</Button>
+                </div>
             </div>
-        </div>
-        // </form>
+            // </form>
         )
     }
 }
@@ -97,7 +97,7 @@ export default function MatchingList() {
                     강사목록 :)
                 </div>
                 <section className="head-wrapper">
-                    <span>강사명</span>
+                    <span>강사번호</span>
                     <span className="title-column">커리큘럼</span>
                     <span>대면</span>
                     <span>지역</span>
@@ -108,8 +108,9 @@ export default function MatchingList() {
                 </section>
                 <section className="list-wrapper">
                     {data.map(
-                        ({ t_id, title, face, area, day, time, free }) => (
+                        ({ select_id, t_id, title, face, area, day, time, free }) => (
                             <ListItem
+                                select_id={select_id}
                                 t_id={t_id}
                                 title={title}
                                 face={face}
@@ -117,6 +118,7 @@ export default function MatchingList() {
                                 day={day}
                                 time={time}
                                 free={free}
+                                key={select_id}
                             />
                         )
                     )}

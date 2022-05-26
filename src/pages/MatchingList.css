@@ -16,39 +16,39 @@
   }
   
   .t_id {
-    margin-left: 1rem;
+    margin-left: 2.3rem;
     margin-right: 1rem;
   }
   
   .curriculum {
     flex: 1;
-    margin-left: 6.7rem;
+    margin-left: 8rem;
     word-break: break-all;
   }
 
   .face {
-    margin-left: 1rem;
-    margin-right: 2.3rem;
+    margin-left: 0rem;
+    margin-right: 3.7rem;
   }
 
   .area {
-    margin-left: 1rem;
-    margin-right: 2.5rem;
+    margin-left: 0rem;
+    margin-right: 4rem;
   }
 
   .day {
-    margin-left: 1rem;
-    margin-right: 3.1rem;
+    margin-left: 0rem;
+    margin-right: 4.8rem;
   }
 
   .time {
-    margin-left: 1rem;
-    margin-right: 3.2rem;
+    margin-left: 0rem;
+    margin-right: 4.8rem;
   }
   
   .free {
-    margin-left: 1rem;
-    margin-right: 2rem;
+    margin-left: 0rem;
+    margin-right: 3rem;
   }
   
   .list-template {
@@ -81,7 +81,7 @@
     span {
       margin: 1rem;
       margin-left: 1.5rem;
-      margin-right: 1.5rem;
+      margin-right: 2rem;
       text-align: center;
     }
     

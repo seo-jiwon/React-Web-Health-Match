@@ -18,7 +18,7 @@ router.post("/timetable", (req, res) => {
 
 // 강사 목록 조회 성공
 router.get('/matchinglist', (req,res) => {
-    database.query('select t.face, t.area, t.day, t.time, t.free from t_match t, u_match u where t.face=u.face and t.area=u.area and t.day=u.day and t.time=u.time and t.free=u.free order by id desc limit 1', (err, result) => {
+    database.query('SELECT t.select_id, u.face, u.area, u.day, u.time, u.free FROM (SELECT face, area, day, time, free FROM u_match ORDER BY id DESC LIMIT 1) u JOIN t_match t ON u.face = t.face AND u.area = t.area AND u.day = t.day AND u.time = t.time AND u.free = t.free;', (err, result) => {
         if(err) res.send(err);
         else{
             res.send(result);
