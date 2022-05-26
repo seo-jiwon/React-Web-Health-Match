@@ -13,6 +13,7 @@ import MatchingComplete from "./pages/MatchingComplete";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Payment from "./pages/Payment";
+import MyPage from "./pages/MyPage";
 
 export default function Router(){
     return useRoutes([
@@ -30,5 +31,6 @@ export default function Router(){
         { path : 'login', element : <Login/>},
         { path : 'signup', element : <SignUp/>},
         { path : 'payment', element : <Payment/>},
+        { path : 'mypage', element : <MyPage/>},
     ]);
 }

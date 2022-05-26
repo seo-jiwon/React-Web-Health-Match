@@ -2,43 +2,43 @@ import React, { useState } from "react";
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import { useForm, useFormState } from "react-hook-form";
-import './SignUp.css'
+import './MyPage.css'
 import axios from "axios";
 
-export default function SignUp() {
+export default function MyPage() {
     const { register, watch, handleSubmit, errors} = useForm();
     const navigate = useNavigate();
 
 
     const onValid = (data) => {
         const {email, pw, nickname, type} = data;
-        axios.post("http://localhost:5000/users/signup", {email, pw, nickname, type})
+        axios.post("http://localhost:5000/users/mypage", {email, pw, nickname, type})
         .then(response => {
             console.log(response.data, "onvalid");
-            alert("회원가입을 성공하였습니다.");
+            alert("회원 정보를 수정하였습니다.");
             navigate('/login');
         })
         .catch(error => {
             console.log(error.data, "onInvalid");
-            alert("회원가입을 실패하였습니다.");
+            alert("회원 정보 수정을 실패하였습니다.");
         });
     };
     
     return (
-        <div className="SignUp">
+        <div className="MyPage">
             <Navbar />
             <main className="main">
             <div className="container">
-                <form className="signup-form" onSubmit={handleSubmit(onValid)}>
-                    <h1 className="signup-h1">SignUp</h1>
-                    <label className="signup-label">id</label>
-                    <input className="signup-input"
+                <form className="mypage-form" onSubmit={handleSubmit(onValid)}>
+                    <h1 className="mypage-h1">MyPage</h1>
+                    <label className="mypage-label">id</label>
+                    <input className="mypage-input"
                         {...register("email", { required: "email error" } )}
                         type = "email"
                         placeholder = "email"
                         />
-                    <label className="signup-label">password</label>
-                    <input className="signup-input"
+                    <label className="mypage-label">password</label>
+                    <input className="mypage-input"
                         {...register("pw", { required: "pw error",
                         minLength:{
                             value:8,
@@ -52,8 +52,8 @@ export default function SignUp() {
                         type = "password"
                         placeholder = "Password Check"
                         />  */}
-                    <label className="signup-label">nickname</label>
-                    <input className="signup-input"
+                    <label className="mypage-label">nickname</label>
+                    <input className="mypage-input"
                         {...register("nickname", { required: "nickname error" ,
                         minLength:{
                             value:2,
@@ -61,7 +61,7 @@ export default function SignUp() {
                         type = "text"
                         placeholder = "nickname"
                         />
-                    <label className="signup-label">회원 유형</label>
+                    <label className="mypage-label">회원 유형</label>
                     <div className="memberType">
                     <div className="type-check">
                         <label htmlFor="public">
@@ -76,7 +76,7 @@ export default function SignUp() {
                                 일반 회원
                         </label>
                     </div>
-                    <div className="type-check">
+                    <div className="mypage-check">
                         <label htmlFor="teacher">
                             <input
                                 {...register("type", { required: true })}
@@ -90,7 +90,7 @@ export default function SignUp() {
                         </label>
                     </div>
                     </div>
-                    <input className="signup-btn" type="submit" value="SignUp" />
+                    <input className="mypage-btn" type="submit" value="회원 정보 수정" />
                 </form>
             </div>
             </main>
