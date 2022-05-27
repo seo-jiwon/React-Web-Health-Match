@@ -16,4 +16,15 @@ router.post("/matchinglist", (req, res) => {
     });
 });
 
+// 매칭완료내역 조회
+router.get('/matchingcomplete', (req,res) => {
+    database.query('SELECT face, area, day, time, free FROM select_t ORDER BY select_id DESC LIMIT 1;', (err, result) => {
+        if(err) res.send(err);
+        else{
+            res.send(result);
+            console.log("매칭 완료 내역 조회 성공!");
+        }
+    })
+})
+
 module.exports = router;
