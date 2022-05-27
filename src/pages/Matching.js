@@ -108,6 +108,7 @@ export default function Matching() {
             <form onSubmit={matchSubmit}>
             <main className="main">
             <div className="A">
+            <h1 className="matching-h1">Matching</h1>
             <RadioGroup row>
                 <FormControlLabel
                     value="대면"

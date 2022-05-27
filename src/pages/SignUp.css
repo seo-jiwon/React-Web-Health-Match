@@ -1,13 +1,16 @@
 .main {
-  display: grid;
-  place-content: center;
-  margin-top: 1rem;
+    display: grid;
+    place-content: center;
+    margin-top: 1rem;
 }
 
 .signup-form {
     width: 350px;
     border: 1px solid #3676c7;
-    padding: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     display: grid;
     flex-direction: column;
     text-align: center;
@@ -43,9 +46,9 @@
 }
 
 .memberType {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .type-check {
@@ -54,3 +57,7 @@
     display:grid;
 }
 
+.error {
+  color: red;
+  font-size: small;
+}

@@ -6,13 +6,20 @@
 
 .A {
     border: 1px solid #3676c7;
-    padding: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     margin-top: 3rem;
     display:grid;
     border-radius: 10px;
+    text-align: center;
 }
 
 .Box {
-    padding-left: 33%;
     margin-top: 3rem;
+}
+
+.matching-h1 {
+    color: #22589e;
 }
