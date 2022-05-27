@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 import './MatchingList.css'
 import Navbar from './Navbar';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 function useFetch(url) {
 
@@ -22,68 +23,71 @@ function useFetch(url) {
     return data;
 }
 
-// const matchSubmit = (e) => {
-//     e.preventDefault();
-//     const data = {
-//         t_name: "no",
-//         curri: "no",
-//         face : e.target.face.value,
-//         area : e.target.area.value,
-//         day : e.target.day.value,
-//         time : e.target.time.value,
-//         free : e.target.pay.value,
-//     }
 
-//     axios.post("http://localhost:5000/select_t/matchinglist", data)
-//     .then(function(response){
-//       console.log(response);
-//       if(response.data.success){
-//         alert("강사 매칭을 성공하였습니다.");
-//       }
-//     }).catch(function(error){
-//       alert("강사 매칭 실패!" + error);
-//     });
-// }
-
-function ListItem({ select_id, face, area, day, time, free }) {
-    if (free === "무료")
-    {
-        return (
-            <div style={{ textDecoration: 'none', color: 'black'}}>
-                <div className="list-item">
-                    <div className="t_id">{select_id}</div>
-                    <Button className="curriculum" size="small">커리큘럼</Button>
-                    <div className="face">{face}</div>
-                    <div className="area">{area}</div>
-                    <div className="day">{day}</div>
-                    <div className="time">{time}</div>
-                    <div className="free">{free}</div>
-                    <Button className="button" size="small" onClick={() => alert("매칭이 완료되었습니다.")} href="/matchingcomplete" type="submit">선택</Button>
-                </div>
-            </div>
-        )
-    }
-    if (free==="유료") {
-        return (
-            <div style={{ textDecoration: 'none', color: 'black'}}>
-                <div className="list-item">
-                    <div className="t_id">{select_id}</div>
-                    <Button className="curriculum" size="small">커리큘럼</Button>
-                    <div className="face">{face}</div>
-                    <div className="area">{area}</div>
-                    <div className="day">{day}</div>
-                    <div className="time">{time}</div>
-                    <div className="free">{free}</div>
-                    <Button className="button" size="small" onClick={() => alert("결제창으로 넘어갑니다.")} href="/payment" type="submit">선택</Button>
-                </div>
-            </div>
-        )
-    }
-}
 
 export default function MatchingList() {
     
     const data = useFetch('http://localhost:5000/t_match/matchinglist');
+
+    const navigate = useNavigate();
+
+    const { register, handleSubmit, errors} = useForm();
+
+    const onValid = (data) => {
+        const {face, area, day, time, free} = data;
+        axios.post("http://localhost:5000/select_t/matchinglist", {face, area, day, time, free})
+        .then(response => {
+            console.log(response.data, "onvalid");
+            alert("강사 매칭을 성공하였습니다.");
+            if (free === "무료") navigate('/matchingcomplete');
+            if (free === "유료") navigate('/payment');
+        })
+        .catch(error => {
+            console.log(error.data, "onInvalid");
+            alert("강사 매칭을 실패하였습니다.");
+        });
+    };
+
+    function ListItem({ select_id, face, area, day, time, free }) {
+
+        if (free === "무료")
+        {
+            return (
+                <form onSubmit={handleSubmit(onValid)}>
+                    <div style={{ textDecoration: 'none', color: 'black'}}>
+                        <div className="list-item">
+                            <div className="t_id">{select_id}</div>
+                            <Button className="curriculum" size="small">커리큘럼</Button>
+                            <input className="face" value={face} {...register("face")}></input>
+                            <input className="area" value={area} {...register("area")}></input>
+                            <input className="day" value={day} {...register("day")}></input>
+                            <input className="time" value={time} {...register("time")}></input>
+                            <input className="free" value={free} {...register("free")}></input>
+                            <Button className="button" size="small" type="submit">선택</Button>
+                        </div>
+                    </div>
+                </form>
+            )
+        }
+        if (free==="유료") {
+            return (
+                <form onSubmit={handleSubmit(onValid)}>
+                    <div style={{ textDecoration: 'none', color: 'black'}}>
+                        <div className="list-item">
+                            <div className="t_id">{select_id}</div>
+                            <Button className="curriculum" size="small">커리큘럼</Button>
+                            <input className="face" value={face} {...register("face")}></input>
+                            <input className="area" value={area} {...register("area")}></input>
+                            <input className="day" value={day} {...register("day")}></input>
+                            <input className="time" value={time} {...register("time")}></input>
+                            <input className="free" value={free} {...register("free")}></input>
+                            <Button className="button" size="small" type="submit">선택</Button>
+                        </div>
+                    </div>
+                </form>
+            )
+        }
+    }
 
     return(
         <div>

@@ -17,33 +17,48 @@
   
   .t_id {
     margin-right: 1rem;
-    margin-left: 2.3rem;
+    margin-left: 2rem;
   }
   
   .curriculum {
     flex: 1;
     word-break: break-all;
-    margin-left: 8rem;
   }
 
   .face {
-    margin-right: 3.7rem;
+    margin-left: 0rem;
+    margin-right: 1.5rem;
+    text-align: center;
+    border: none;
+    width: 30px;
   }
 
   .area {
-    margin-right: 4rem;
+    margin-right: 2rem;
+    text-align: center;
+    border: none;
+    width: 50px;
   }
 
   .day {
-    margin-right: 4.8rem;
+    margin-right: 3rem;
+    text-align: center;
+    border: none;
+    width: 10px;
   }
 
   .time {
-    margin-right: 4.8rem;
+    margin-right: 2.5rem;
+    text-align: center;
+    border: none;
+    width: 25px;
   }
   
   .free {
-    margin-right: 3rem;
+    margin-right: 2.3rem;
+    text-align: center;
+    border: none;
+    width: 25px;
   }
   
   .list-template {
