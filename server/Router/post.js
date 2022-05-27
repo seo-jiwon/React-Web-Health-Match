@@ -65,5 +65,45 @@ router.post('/update', (req, res) => {
             }
         });
     });
+
+// 댓글 생성
+router.post("/comment", (req, res) => {
+    database.query(
+        "INSERT INTO comments(post_id,comment_writer, contents, comment_date ) values (?, ?, ?, ?)", [req.body.post_id,req.body.comment_writer, req.body.contents, req.body.comment_date ],
+    function(err, data){
+        if(err){
+            console.log(err);
+        } else{
+            res.send({success : 1});
+            console.log("새로운 댓글 등록");
+        }
+    });
+});
+
+router.post('/comment_success', (req,res) => {
+    database.query('SELECT * FROM comments WHERE post_id=?',[req.body.post_id], 
+    (err, result) => {
+        if(err) res.send(err);
+        else{
+            res.send(result);
+            console.log("댓글 가져옴!");
+        }
+    })
+})
+
+//댓글 삭제
+router.post("/comment_delete", (req, res) => {
+    database.query(
+        "DELETE FROM comments where comment_id = ?", [req.body.comment_id],
+    function(err, data){
+        if(err){
+            console.log(err);
+        } else{
+            res.send({success : 1});
+            console.log("댓글 삭제");
+        }
+    });
+});
+
         
 module.exports = router;

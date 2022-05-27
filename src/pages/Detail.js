@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
@@ -6,6 +6,8 @@ import './Detail.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutorenewOutlinedIcon from '@mui/icons-material/AutorenewOutlined';
+import Comment from './Comment'
+
 
 function useFetch(url, id) {
     const [data, setData] = useState(null);
@@ -60,7 +62,7 @@ const Detail = () => {
 
     const [searchParams] = useSearchParams();
     const id = searchParams.get('post_id');
-
+   
     const [data, loading] = useFetch('http://localhost:5000/post/detail', id);
 
     if (loading) {
@@ -96,9 +98,11 @@ const Detail = () => {
                     </Link>
                     <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
                     </div>
+                    <Comment/>
                 </div>
             </div>
         )
     }
 }
+
 export default Detail;
