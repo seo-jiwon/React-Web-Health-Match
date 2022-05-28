@@ -54,7 +54,7 @@ export default function SignUp() {
                         placeholder = "Password"
                         />
                     {errors.pw && errors.pw.message && <div className="error">{errors.pw.message}</div>}
-                    <label className="signup-label">check password</label>
+                    {/* <label className="signup-label">check password</label>
                     <input
                         {...register("pwCheck", { required: "비밀번호를 다시 입력해 주세요.",
                         validate: (value) =>
@@ -62,7 +62,7 @@ export default function SignUp() {
                             message:"비밀번호가 일치하지 않습니다." })}
                         type = "password"
                         placeholder = "Password Check"
-                        />
+                        /> */}
                     {/* {errors.pwCheck && errors.pwCheck.value === "validate" && <div className="error">{errors.pwCheck.message}</div>} */}
                     <label className="signup-label">nickname</label>
                     <input className="signup-input"
