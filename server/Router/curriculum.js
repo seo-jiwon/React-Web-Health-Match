@@ -17,7 +17,7 @@ router.post("/curriculum", (req, res) => {
 });
 
 router.get('/curriculumdetail', (req,res) => {
-    database.query('SELECT content FROM curriculum', (err, result) => {
+    database.query('SELECT content FROM curriculum ORDER BY curriculum_id DESC LIMIT 1;', (err, result) => {
         if(err) res.send(err);
         else{
             res.send(result);
