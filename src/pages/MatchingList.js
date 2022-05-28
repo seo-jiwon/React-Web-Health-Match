@@ -57,7 +57,7 @@ export default function MatchingList() {
                     <div style={{ textDecoration: 'none', color: 'black'}}>
                         <div className="list-item">
                             <div className="t_id">{select_id}</div>
-                            <Button className="curriculum" size="small">커리큘럼</Button>
+                            <Button className="curriculum" size="small" href="/curriculumdetail">커리큘럼</Button>
                             <input className="face" value={face} {...register("face")}></input>
                             <input className="area" value={area} {...register("area")}></input>
                             <input className="day" value={day} {...register("day")}></input>
@@ -75,7 +75,7 @@ export default function MatchingList() {
                     <div style={{ textDecoration: 'none', color: 'black'}}>
                         <div className="list-item">
                             <div className="t_id">{select_id}</div>
-                            <Button className="curriculum" size="small">커리큘럼</Button>
+                            <Button className="curriculum" size="small" href="/curriculumdetail">커리큘럼</Button>
                             <input className="face" value={face} {...register("face")}></input>
                             <input className="area" value={area} {...register("area")}></input>
                             <input className="day" value={day} {...register("day")}></input>

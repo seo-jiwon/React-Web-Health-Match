@@ -10,6 +10,7 @@ const user_match = require("./Router/user_match");
 const t_match = require("./Router/t_match");
 const u_match = require("./Router/u_match");
 const select_t = require("./Router/select_t");
+const curriculum = require("./Router/curriculum");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ app.use("/user_match", user_match);
 app.use("/t_match", t_match);
 app.use("/u_match", u_match);
 app.use("/select_t", select_t);
+app.use("/curriculum", curriculum);
 
 const port = 5000;
 app.listen(port, () => {

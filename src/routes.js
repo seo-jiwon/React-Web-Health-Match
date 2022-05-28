@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Payment from "./pages/Payment";
 import MyPage from "./pages/MyPage";
+import CurriculumDetail from "./pages/CurriculumDetail";
 
 export default function Router(){
     return useRoutes([
@@ -32,5 +33,6 @@ export default function Router(){
         { path : 'signup', element : <SignUp/>},
         { path : 'payment', element : <Payment/>},
         { path : 'mypage', element : <MyPage/>},
+        { path : 'curriculumdetail',  element : <CurriculumDetail/>},
     ]);
 }
