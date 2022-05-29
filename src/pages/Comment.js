@@ -5,13 +5,11 @@ import Button from '@mui/material/Button';
 import { Typography, Stack } from '@mui/material';
 import axios from 'axios';
 import { CommentsDisabledOutlined } from '@mui/icons-material';
+import { useSearchParams} from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 
 
-
-
-
-
-export default function Comment() {
+export default function Comment(post_id) {
     
     let today = new Date();
 
@@ -23,7 +21,7 @@ export default function Comment() {
     const onComment = async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:5000/post/comment", {
-            post_id:2,
+            post_id: post_id.post_id,
             comment_writer:"강채연",
             contents: e.target.contents.value,
             comment_date : timeFormat
@@ -49,7 +47,7 @@ export default function Comment() {
     
 
     async function getComment(){
-       await axios.post("http://localhost:5000/post/comment_success", {post_id:2}, {
+       await axios.post("http://localhost:5000/post/comment_success", {post_id:post_id.post_id}, {
         headers: {
             "Content-Type": "application/json"
         }
@@ -58,11 +56,11 @@ export default function Comment() {
         console.log(response);
         setComments(
             response.data.map((row) =>(
-                <Card key={row.comment_id} variant="outlined" sx={{width:"100%",marginTop:10}}>
+                <Card key={row.comment_id} variant="outlined" sx={{width:"100%",marginTop:2}}>
                     <Typography>{row.comment_writer}</Typography>
                     <Stack direction="row" spacing={2}>
                         <Typography>{row.contents}</Typography>
-                        <Button variant="outlined" sx={{width:"10%", align:"right"}}>삭제</Button>
+                        <Button variant="outlined" sx={{width:"10%", align:"right"}} onClick={() => deletecomment(row.comment_id)}>삭제</Button>
                     </Stack>
                 </Card>
             ))
@@ -78,10 +76,12 @@ export default function Comment() {
         getComment()
         
     }, [])
+    
 
-    function deletecomment(id) {
+
+    function deletecomment(c_id) {
         const data = {
-            comment_id :id
+            comment_id :c_id
         }
     
         console.log(data)
@@ -91,11 +91,16 @@ export default function Comment() {
           console.log(response);
           if(response.data.success){
             alert("댓글 삭제가 성공하였습니다.");
-            window.location.replace('/detail');
+            getComment();
+
           }
         }).catch(function(error){
           alert("댓글 삭제 실패!" + error);
         });
+    }
+
+    function onUpdate(data){
+        return 
     }
     
     return (

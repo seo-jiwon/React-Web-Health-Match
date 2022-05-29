@@ -98,7 +98,7 @@ const Detail = () => {
                     </Link>
                     <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
                     </div>
-                    <Comment/>
+                    <Comment post_id={id}/>
                 </div>
             </div>
         )
