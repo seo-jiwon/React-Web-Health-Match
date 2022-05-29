@@ -58,9 +58,9 @@ export default function Comment(post_id) {
             response.data.map((row) =>(
                 <Card key={row.comment_id} variant="outlined" sx={{width:"100%",marginTop:2}}>
                     <Typography>{row.comment_writer}</Typography>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={2} alignItems="center">
                         <Typography>{row.contents}</Typography>
-                        <Button variant="outlined" sx={{width:"10%", align:"right"}} onClick={() => deletecomment(row.comment_id)}>삭제</Button>
+                        <Button  size="small" onClick={() => deletecomment(row.comment_id)}>삭제</Button>
                     </Stack>
                 </Card>
             ))
@@ -74,9 +74,7 @@ export default function Comment(post_id) {
 
     React.useEffect(() => {
         getComment()
-        
     }, [])
-    
 
 
     function deletecomment(c_id) {
@@ -98,17 +96,13 @@ export default function Comment(post_id) {
           alert("댓글 삭제 실패!" + error);
         });
     }
-
-    function onUpdate(data){
-        return 
-    }
     
     return (
     <div>
         <Card variant="outlined" sx={{width:"100%",marginTop:10}}>
             <form onSubmit={onComment}>
             <TextField id="contents" name="contents" label="댓글을 입력하세요..." variant="standard" sx={{width:"90%"}}/>
-            <Button variant="outlined" type="submit" sx={{width:"10%"}}>완료</Button>
+            <Button variant="outlined"  type="submit" sx={{width:"10%"}}>완료</Button>
             </form>
         </Card>
         {comments}
