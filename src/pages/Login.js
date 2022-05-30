@@ -15,6 +15,7 @@ export default function Login() {
         axios.post("http://localhost:5000/users/signin", {email, pw})
         .then(response => {
             console.log(response.data, "onvalid");
+            localStorage.setItem("user", email);
             alert("로그인을 성공하였습니다.");
             navigate('/');
         })

@@ -8,6 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
+
+
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleMenu = (event) => {
@@ -16,6 +18,7 @@ export default function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const isLoggedIn = localStorage.getItem("user");
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -27,6 +30,7 @@ export default function Navbar() {
             <Button color="inherit" href="/matching">Matching</Button>
             <Button color="inherit" href="/community">Community</Button>
           </Typography>
+          <p>{window.localStorage.getItem("user")}</p>
           <div>
             <Button
               size="large"
@@ -56,11 +60,15 @@ export default function Navbar() {
               <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
             </Menu>
           </div>
-          <Button color="inherit" href="/login">Login</Button>
+          {isLoggedIn ? (
+            <Button color="inherit" href="/" onClick={ ()=>{
+            localStorage.removeItem("user");
+          }}>Logout</Button>
+          ) : (
+            <Button color="inherit" href="/login">Login</Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
-
-
