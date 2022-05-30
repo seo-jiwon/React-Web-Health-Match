@@ -46,12 +46,6 @@ export default function MyPage() {
                         type = "password"
                         placeholder = "pw"
                         />
-                    {/* <label className="signup-label">check password</label>
-                    <input
-                        {...register("passwordCheck", { required: "password check error" })}
-                        type = "password"
-                        placeholder = "Password Check"
-                        />  */}
                     <label className="mypage-label">nickname</label>
                     <input className="mypage-input"
                         {...register("nickname", { required: "nickname error" ,

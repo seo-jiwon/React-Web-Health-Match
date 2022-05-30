@@ -31,39 +31,38 @@ export default function Navbar() {
             <Button color="inherit" href="/community">Community</Button>
           </Typography>
           <p>{window.localStorage.getItem("user")}</p>
-          <div>
-            <Button
-              size="large"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >Add
-            </Button>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem component="a" href="/mypage">MyPage</MenuItem>
-              <MenuItem component="a" href="/timetable">Timetable</MenuItem>
-              <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
-            </Menu>
-          </div>
           {isLoggedIn ? (
-            <Button color="inherit" href="/" onClick={ ()=>{
-            localStorage.removeItem("user");
-          }}>Logout</Button>
+            <><div>
+              <Button
+                size="large"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >Add
+              </Button>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem component="a" href="/mypage">MyPage</MenuItem>
+                <MenuItem component="a" href="/timetable">Timetable</MenuItem>
+                <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
+              </Menu>
+            </div><Button color="inherit" href="/" onClick={() => {
+              localStorage.removeItem("user");
+            } }>Logout</Button></>
           ) : (
             <Button color="inherit" href="/login">Login</Button>
           )}
