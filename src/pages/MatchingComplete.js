@@ -62,7 +62,7 @@ export default function Home() {
     <div>
       <Navbar/>
       <main className="main">
-          <h2>매칭완료 내역:)</h2>
+          <h2>매칭완료 내역 :)</h2>
             <div className="square">
               {data.map(
                       ({ face, area, day, time, free }) => (
