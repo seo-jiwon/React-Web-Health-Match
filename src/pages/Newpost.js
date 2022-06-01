@@ -29,7 +29,6 @@ export default function Newpost() {
     .then(function(response){
       console.log(response);
       if(response.data.success){
-        alert("게시글 등록이 성공하였습니다.");
         navigate('/community');
       }
     }).catch(function(error){

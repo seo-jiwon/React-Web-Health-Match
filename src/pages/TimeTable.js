@@ -252,7 +252,6 @@ class AppointmentFormContainerBasic extends React.PureComponent {
       .then(function(response){
         console.log(response);
         if(response.data.success){
-          alert("강사 매칭 조건 설정을 성공하였습니다.");
         }
       }).catch(function(error){
         alert("강사 매칭 조건 설정 실패!" + error);

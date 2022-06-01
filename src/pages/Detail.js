@@ -46,7 +46,6 @@ function deletepost(id) {
     .then(function(response){
       console.log(response);
       if(response.data.success){
-        alert("게시글 삭제가 성공하였습니다.");
         window.location.replace('/community');
       }
     }).catch(function(error){

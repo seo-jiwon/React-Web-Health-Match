@@ -6,8 +6,11 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Curriculum() {
+
+  const navigate = useNavigate();
 
   const curriculumSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +22,8 @@ export default function Curriculum() {
     .then(function(response){
       console.log(response);
       if(response.data.success){
-        alert("커리큘럼 등록이 성공하였습니다.");
+        alert("커리큘럼 등록이 완료되었습니다.");
+        navigate('/');
       }
     }).catch(function(error){
       alert("커리큘럼 등록 실패!" + error);

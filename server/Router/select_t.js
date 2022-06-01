@@ -11,7 +11,7 @@ router.post("/matchinglist", (req, res) => {
             console.log(err);
         } else{
             res.send({success : 1});
-            console.log("강사 매칭 완료");
+            console.log("강사 매칭");
         }
     });
 });
@@ -22,7 +22,7 @@ router.get('/matchingcomplete', (req,res) => {
         if(err) res.send(err);
         else{
             res.send(result);
-            console.log("매칭 완료 내역 조회 성공!");
+            console.log("매칭 완료 내역 조회");
         }
     })
 })

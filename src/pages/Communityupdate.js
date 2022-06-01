@@ -34,7 +34,6 @@ export default function Communityupdate() {
     .then(function(response){
       console.log(response);
       if(response.data.success){
-        alert("게시글 수정에 성공하였습니다.");
         navigate('/community');
       }
     }).catch(function(error){

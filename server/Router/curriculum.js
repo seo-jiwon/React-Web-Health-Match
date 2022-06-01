@@ -21,7 +21,7 @@ router.get('/curriculumdetail', (req,res) => {
         if(err) res.send(err);
         else{
             res.send(result);
-            console.log("커리큘럼 조회 성공!");
+            console.log("커리큘럼 조회");
         }
     })
 })

@@ -38,7 +38,6 @@ export default function MatchingList() {
         axios.post("http://localhost:5000/select_t/matchinglist", {face, area, day, time, free})
         .then(response => {
             console.log(response.data, "onvalid");
-            alert("강사 매칭을 성공하였습니다.");
             if (free === "무료") navigate('/matchingcomplete');
             if (free === "유료") navigate('/payment');
         })

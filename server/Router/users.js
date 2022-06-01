@@ -30,7 +30,7 @@ router.post("/signin", (req, res) =>{
             console.log("에러 발생" + err);
         }
         else {
-            console.log("로그인 성공")
+            console.log("로그인")
             res.send(data);
         }
     });

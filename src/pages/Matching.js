@@ -92,7 +92,6 @@ export default function Matching() {
         .then(function(response){
           console.log(response);
           if(response.data.success){
-            alert("매칭 설정을 성공하였습니다.");
             navigate('/matchinglist');
           }
         }).catch(function(error){

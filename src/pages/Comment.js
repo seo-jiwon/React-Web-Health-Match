@@ -32,7 +32,6 @@ export default function Comment(post_id) {
         })
             .then((response) => {
                 if(response.data.success){
-                    alert("댓글이 성공적으로 작성되었습니다.")
                     getComment()
                 }
             })
@@ -88,7 +87,6 @@ export default function Comment(post_id) {
         .then(function(response){
           console.log(response);
           if(response.data.success){
-            alert("댓글 삭제가 성공하였습니다.");
             getComment();
 
           }

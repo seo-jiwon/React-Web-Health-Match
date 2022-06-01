@@ -11,7 +11,7 @@ router.post("/timetable", (req, res) => {
             console.log(err);
         } else{
             res.send({success : 1});
-            console.log("새로운 매칭 조건 설정 완료");
+            console.log("새로운 매칭 조건 설정");
         }
     });
 });
@@ -22,7 +22,7 @@ router.get('/matchinglist', (req,res) => {
         if(err) res.send(err);
         else{
             res.send(result);
-            console.log("강사 목록 조회 성공!");
+            console.log("강사 목록 조회");
         }
     })
 })

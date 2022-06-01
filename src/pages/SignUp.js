@@ -17,7 +17,7 @@ export default function SignUp() {
         axios.post("http://localhost:5000/users/signup", {email, pw, nickname, type})
         .then(response => {
             console.log(response.data, "onvalid");
-            alert("회원가입을 성공하였습니다.");
+            alert("회원가입이 완료되었습니다.");
             navigate('/login');
         })
         .catch(error => {

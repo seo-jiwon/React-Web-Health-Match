@@ -22,7 +22,7 @@ router.get('/community', (req,res) => {
         if(err) res.send(err);
         else{
             res.send(result);
-            console.log("게시글 목록 조회 성공!");
+            console.log("게시글 목록 조회");
         }
     })
 })
@@ -47,7 +47,7 @@ router.post('/update', (req, res) => {
             console.log(err);
         } else{
             res.send({success : 1});
-            console.log("게시글 수정 성공");
+            console.log("게시글 수정");
         }
     });
 });
@@ -86,7 +86,7 @@ router.post('/comment_success', (req,res) => {
         if(err) res.send(err);
         else{
             res.send(result);
-            console.log("댓글 가져옴!");
+            console.log("댓글 조회");
         }
     })
 })

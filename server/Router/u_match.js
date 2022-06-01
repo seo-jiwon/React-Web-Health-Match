@@ -11,7 +11,7 @@ router.post("/matching", (req, res) => {
             console.log(err);
         } else{
             res.send({success : 1});
-            console.log("새로운 매칭 조건 설정 완료");
+            console.log("새로운 매칭 조건 설정");
         }
     });
 });
