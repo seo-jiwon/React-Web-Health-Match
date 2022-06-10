@@ -52,27 +52,25 @@ export default function Home() {
     <div>
       <Navbar/>
       <main className="main">
-        <div className="contain">
           <div className="inner">
             <div className="cont">
               <div>
                 <h2 className="h2_line">매칭완료 내역:)</h2>
               </div>
               {data.map(
-                      ({ face, area, day, time, free }) => (
-                          <ListItem
-                              face={face}
-                              area={area}
-                              day={day}
-                              time={time}
-                              free={free}
-                          />
-                      )
-                  )}
-                <Box className="box">
-                  <Button href="/" color="primary" >홈으로</Button>
-                </Box>
-              </div>
+                ({ face, area, day, time, free }) => (
+                  <ListItem
+                      face={face}
+                      area={area}
+                      day={day}
+                      time={time}
+                      free={free}
+                  />
+                  )
+                )}
+              <Box className="box">
+                <Button href="/" color="primary" >홈으로</Button>
+              </Box>
             </div>
           </div>
         </main>

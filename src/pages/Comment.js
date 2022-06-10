@@ -7,6 +7,7 @@ import axios from 'axios';
 import { CommentsDisabledOutlined } from '@mui/icons-material';
 import { useSearchParams} from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
+import './Comment.css';
 
 
 export default function Comment(post_id) {
@@ -97,14 +98,16 @@ export default function Comment(post_id) {
     
     return (
     <div>
-        <Card variant="outlined" sx={{width:"100%",marginTop:10}}>
+        <div className="comment_title">
+            <h3 >댓글</h3>
+        </div>
+        <Card variant="outlined" sx={{width:"100%"}}>
             <form onSubmit={onComment}>
             <TextField id="contents" name="contents" label="댓글을 입력하세요..." variant="standard" sx={{width:"90%"}}/>
             <Button variant="outlined"  type="submit" sx={{width:"10%"}}>완료</Button>
             </form>
         </Card>
         {comments}
-        
     </div>
   )
 }

@@ -1,0 +1,20 @@
+.curri_textfield {
+    background-color: white;
+}
+
+.curri_inner{
+    padding: 50px;
+    width: 990px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 1rem;
+    /* height: 500px; */
+}
+
+.curri_cont{
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    background: #fff;
+    width: 988px;
+    padding: 1rem;
+}

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutorenewOutlinedIcon from '@mui/icons-material/AutorenewOutlined';
 import Comment from './Comment'
+import Footer from './Footer';
 
 
 function useFetch(url, id) {
@@ -72,34 +73,31 @@ const Detail = () => {
         return (
             <div>
                 <Navbar />
-                <div className='Post'>
-                    <div className='read_title'>
-                        {data.title}
+                <div classNmae="main">
+                    <div className='detail_inner'>
+                        <div className='detail_cont'>
+                            <table className="table">
+                                <tr className="detail_header">
+                                    <th className="detail_title">{data.title}</th>
+                                    <th className="detail_date">작성일 {data.write_date}</th>
+                                    <th className="detail_writer">작성자 {data.writer}</th>
+                                </tr>
+                                <tr height="350px">
+                                    <td className="td" colSpan="6">{data.content}</td>
+                                </tr>
+                            </table>
+                            <div className='btns'>
+                                <Link to='/update' state = {{data : data}}>
+                                    <Button sx={{marginRight:2}} className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
+                                </Link>
+                                <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
+                            </div>
+                            <Comment post_id={id}/>
+                        </div>
                     </div>
-                    <table className="table">
-                        <tbody>
-                            <tr align="center" className='table_info'>
-                                <td className="td" width="15%">제목</td>
-                                <td className="td" width="20%">{data.title}</td>
-                                <td className="td" width="15%">작성일</td>
-                                <td className="td" width="20%">{data.write_date}</td>
-                                <td className="td" width="15%">작성자</td>
-                                <td className="td" width="15%">{data.writer}</td>
-                            </tr>
-                            <tr height="350px">
-                                <td className="td" colSpan="6">{data.content}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className='btns'>
-                    <Link to='/update' state = {{data : data}}>
-                        <Button className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
-                    </Link>
-                    <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
-                    </div>
-                    <Comment post_id={id}/>
                 </div>
-            </div>
+            <Footer/>
+        </div>
         )
     }
 }
