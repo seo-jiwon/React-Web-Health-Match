@@ -106,7 +106,7 @@ export default function Matching() {
             <Navbar />
             <form onSubmit={matchSubmit}>
             <main className="main">
-            <div className="A">
+            <div className="matching-container">
             <h1 className="matching-h1">Matching</h1>
             <RadioGroup row>
                 <FormControlLabel

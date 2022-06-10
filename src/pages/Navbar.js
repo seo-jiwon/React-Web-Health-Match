@@ -24,8 +24,8 @@ export default function Navbar() {
     <div>
     <Box sx={{ flexGrow: 1 }}>
       <Toolbar>
-        <Typography component="div" color="white" sx={{ flexGrow: 1 }}>
-          <h1>Healthmatching<FitnessCenterIcon /></h1>
+        <Typography component="div" color="white" align="center" style={{ verticalAlign: "middle" }} sx={{ flexGrow: 1 }}>
+          <h1>　　　Healthmatching<FitnessCenterIcon /></h1>
           </Typography>
         <p>{window.localStorage.getItem("user")}</p>
           {isLoggedIn ? (
@@ -66,9 +66,9 @@ export default function Navbar() {
       </Toolbar>
       <AppBar position="static" style={{ background: 'rgba(30, 44, 173, 0.9)', boxShadow: 'none'}}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Button color="inherit" href="/">Home</Button>
-            <Button color="inherit" href="/matching">Matching</Button>
+          <Typography align="center" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Button color="inherit" href="/" >Home</Button>
+            <Button color="inherit" href="/matching" >Matching</Button>
             <Button color="inherit" href="/community">Community</Button>
           </Typography>
         </Toolbar>
