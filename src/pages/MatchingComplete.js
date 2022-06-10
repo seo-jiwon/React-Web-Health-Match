@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import Box from '@mui/material/Box';
 import { Button } from '@material-ui/core';
-import './MatchingComplete2.css'
+import './MatchingComplete.css'
+
+
 
 export default function Home() {
   const data = useFetch('http://localhost:5000/select_t/matchingcomplete');
@@ -26,39 +29,35 @@ export default function Home() {
   
   function ListItem({ face, area, day, time, free }) {
     return (
-        <div style={{ textDecoration: 'none'}}>
+        <div className="basic_table">
           <table className="Table">
-          <tr>
-            <th className="item">대면</th>
-            <td className="content">{face}</td>
-          </tr>
-          <tr>
-            <th className="item">지역</th>
-            <td className="content">{area}</td>
-          </tr>
-          <tr>
-            <th className="item">요일</th>
-            <td className="content">{day}요일</td>
-          </tr>
-          <tr>
-            <th className="item">시간</th>
-            <td className="content">{time}시</td>
-          </tr>
-          <tr>
-            <th className="item">유무료</th>
-            <td className="content">{free}</td>
-          </tr>
+            <tr className="item">
+              <th>대면</th>
+              <th>지역</th>
+              <th>요일</th>
+              <th>시간</th> 
+              <th>유무료</th>
+            </tr>
+            <tr>
+              <td>{face}</td>
+              <td>{area}</td>
+              <td>{day}요일</td>
+              <td>{time}시</td><td>{free}</td>
+            </tr>
           </table>
         </div>
     )
   }
   return (
     <div>
-      <div className="bg" />
       <Navbar/>
       <main className="main">
-            <div className="square">
-            <h3 className="matchingComplete-text">매칭 완료!</h3>
+        <div className="contain">
+          <div className="inner">
+            <div className="cont">
+              <div>
+                <h2 className="h2_line">매칭완료 내역:)</h2>
+              </div>
               {data.map(
                       ({ face, area, day, time, free }) => (
                           <ListItem
@@ -70,12 +69,15 @@ export default function Home() {
                           />
                       )
                   )}
-            <Box className="box">
-              <Button className="homeButton" href="/" size="small"
-                sx={{backgroundColor: '#3c60fa'}}>홈으로</Button>
-            </Box>
+                <Box className="box">
+                  <Button href="/" color="primary" >홈으로</Button>
+                </Box>
+              </div>
             </div>
-            </main>
+          </div>
+        </main>
+      <Footer/>
     </div>
   );
 }
+
