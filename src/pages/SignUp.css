@@ -5,8 +5,8 @@
 }
 
 .signup-form {
-    width: 350px;
-    border: 1px solid #3676c7;
+    width: 500px;
+    border: 1px solid #2048f2;
     padding-left: 5rem;
     padding-right: 5rem;
     padding-top: 3rem;
@@ -15,6 +15,7 @@
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
+    background-color: white;
   }
   
 .signup-input {
@@ -26,7 +27,7 @@
   
 .signup-btn {
     margin: 20px 0px;
-    background-color: #22589e;
+    background-color: #2048f2;
     font-size: 16px;
     color: white;
     font-weight: 600;
@@ -35,7 +36,7 @@
   }
   
 .signup-h1 {
-    color: #22589e;
+    color: #2048f2;
 }
   
 .signup-label {

@@ -1,0 +1,14 @@
+.App {
+    background-image: url('./pages/img/back.png');
+    height: 100vh;
+    flex: 1;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.9;
+}

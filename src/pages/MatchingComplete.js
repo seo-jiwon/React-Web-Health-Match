@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Box from '@mui/material/Box';
 import { Button } from '@material-ui/core';
-import './MatchingComplete.css'
-
-
+import './MatchingComplete2.css'
 
 export default function Home() {
   const data = useFetch('http://localhost:5000/select_t/matchingcomplete');
@@ -28,30 +26,26 @@ export default function Home() {
   
   function ListItem({ face, area, day, time, free }) {
     return (
-        <div style={{ textDecoration: 'none', color: 'black'}}>
+        <div style={{ textDecoration: 'none'}}>
           <table className="Table">
           <tr>
-            <th className="item">항목</th>
-            <th className="content">상태</th>
-          </tr>
-          <tr>
-            <td className="item">대면</td>
+            <th className="item">대면</th>
             <td className="content">{face}</td>
           </tr>
           <tr>
-            <td className="item">지역</td>
+            <th className="item">지역</th>
             <td className="content">{area}</td>
           </tr>
           <tr>
-            <td className="item">요일</td>
+            <th className="item">요일</th>
             <td className="content">{day}요일</td>
           </tr>
           <tr>
-            <td className="item">시간</td>
+            <th className="item">시간</th>
             <td className="content">{time}시</td>
           </tr>
           <tr>
-            <td className="item">유무료</td>
+            <th className="item">유무료</th>
             <td className="content">{free}</td>
           </tr>
           </table>
@@ -60,10 +54,11 @@ export default function Home() {
   }
   return (
     <div>
+      <div className="bg" />
       <Navbar/>
       <main className="main">
-          <h2>매칭완료 내역 :)</h2>
             <div className="square">
+            <h3 className="matchingComplete-text">매칭 완료!</h3>
               {data.map(
                       ({ face, area, day, time, free }) => (
                           <ListItem
@@ -76,7 +71,8 @@ export default function Home() {
                       )
                   )}
             <Box className="box">
-              <Button href="/" color="primary" size="small">홈으로</Button>
+              <Button className="homeButton" href="/" size="small"
+                sx={{backgroundColor: '#3c60fa'}}>홈으로</Button>
             </Box>
             </div>
             </main>
