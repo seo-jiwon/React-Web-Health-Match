@@ -107,8 +107,8 @@ export default function Matching() {
         <div>
             <Navbar />
             <form onSubmit={matchSubmit}>
-                <main className="main">
-                    <div className="tool">
+                <main className="matching_main">
+                    <div className="matching_tool">
                         <div className="matching-container">
                             <h2 className="matching-line">Matching :)</h2>
 
@@ -143,7 +143,7 @@ export default function Matching() {
                                 </FormControlLabel>
                             </RadioGroup>
 
-                            <div className="control3">
+                            <div className="matching_control">
                                 <FormControl className={classes.formControl}>
                                     <InputLabel variant="standard" htmlFor="uncontrolled-native">
                                         지역
@@ -238,8 +238,8 @@ export default function Matching() {
                                     }
                                 </FormControlLabel>
                             </RadioGroup>
-                            <Box className="Box">
-                                <Button endIcon={<SendIcon />} type="submit" onClick={getData}>Matching</Button>
+                            <Box className="matching_Box">
+                                <Button color="primary" endIcon={<SendIcon />} type="submit" onClick={getData}>Matching</Button>
                             </Box>
                         </div>
                     </div>

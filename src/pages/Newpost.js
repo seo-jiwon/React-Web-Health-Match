@@ -24,50 +24,51 @@ export default function Newpost() {
   const postSubmit = (e) => {
     e.preventDefault();
     const data = {
-      title : e.target.title.value,
-      content : e.target.content.value,
-      writer : "no",
-      write_date : timeFormat
+      title: e.target.title.value,
+      content: e.target.content.value,
+      writer: "no",
+      write_date: timeFormat
     }
 
     axios.post("http://localhost:5000/post/newpost", data)
-    .then(function(response){
-      console.log(response);
-      if(response.data.success){
-        navigate('/community');
-      }
-    }).catch(function(error){
-      alert("게시글 등록 실패!" + error);
-    });
+      .then(function (response) {
+        console.log(response);
+        if (response.data.success) {
+          navigate('/community');
+        }
+      }).catch(function (error) {
+        alert("게시글 등록 실패!" + error);
+      });
 
   }
 
   return (
     <>
-    <Navbar/>
-    <div> 
-    <div className="newpost_box">
-    <Box>
-  <h1>NEWPOST :)</h1>
+      <Navbar />
       <div>
-      <Container sx={{ width: 900, height: 500 }}>
-          <form onSubmit={postSubmit}>
-          <Stack spacing={1}>
-          
-            <TextField fullWidth id="title" name="title" label="제목" variant="filled" color="success" />
-            <TextField fullWidth id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
-            
-            
-            <Button type="submit" variant="contained" color="success" >등록완료</Button>
+        <Container sx={{ width: '50%' }}>
+          <div className="newpost_box">
+            <Box>
+              <h1>NEWPOST :)</h1>
+              <div>
+                <Container sx={{ width: 900, height: 500 }}>
+                  <form onSubmit={postSubmit}>
+                    <Stack spacing={1}>
 
-          </Stack>
-          </form>
-      </Container>
+                      <TextField fullWidth id="title" name="title" label="제목" variant="filled" color="success" />
+                      <TextField fullWidth id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
+
+                      <Button type="submit" variant="contained" color="success" >등록완료</Button>
+
+                    </Stack>
+                  </form>
+                </Container>
+              </div>
+            </Box>
+          </div>
+        </Container>
       </div>
-    </Box>
-    </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   )
 }

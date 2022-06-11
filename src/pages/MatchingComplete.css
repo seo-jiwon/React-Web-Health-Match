@@ -1,10 +1,10 @@
-.main {
+.matchingcomplete_main {
     display: grid;
     margin-top: 1rem;
     padding-top: 243pz;
 }
 
-.inner{
+.matchingcomplete_inner{
     padding: 50px;
     width: 990px;
     margin: 0 auto;
@@ -13,7 +13,7 @@
     /* height: 500px; */
 }
 
-.cont{
+.matchingcomplete_cont{
     border: 1px solid #dedede;
     border-radius: 2px;
     background: #fff;
@@ -21,23 +21,22 @@
     padding: 1rem;
 }
 
-.h2_line{
+.matchingcomplete_h2_line{
     border-bottom: 2px solid #999;
-    text-align: center;
 }
 
-.basic_table {
+.matchingcomplete_basic_table {
     border-bottom: 1px solid #c7c7c7;
     padding-top: 1rem;
 }
 
-.Table {
+.matchingcomplete_Table {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
 
-.item {
+.matchingcomplete_item {
     padding-top: 14px;
     border-top: 1px solid #c7c7c7;
     background-color: #f8f8f8;
@@ -52,7 +51,7 @@
     text-align: center;
 }
 
-.box {
+.matchingcomplete_box {
     text-align: center;
     margin-top: 10rem;
 }

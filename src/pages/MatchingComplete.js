@@ -29,9 +29,9 @@ export default function Home() {
   
   function ListItem({ face, area, day, time, free }) {
     return (
-        <div className="basic_table">
-          <table className="Table">
-            <tr className="item">
+        <div className="matchingcomplete_basic_table">
+          <table className="matchingcomplete_Table">
+            <tr className="matchingcomplete_item">
               <th>대면</th>
               <th>지역</th>
               <th>요일</th>
@@ -51,11 +51,11 @@ export default function Home() {
   return (
     <div>
       <Navbar/>
-      <main className="main">
-          <div className="inner">
-            <div className="cont">
+      <main className="matchingcomplete_main">
+          <div className="matchingcomplete_inner">
+            <div className="matchingcomplete_cont">
               <div>
-                <h2 className="h2_line">매칭완료 :)</h2>
+                <h2 className="matchingcomplete_h2_line">매칭완료 :)</h2>
               </div>
               {data.map(
                 ({ face, area, day, time, free }) => (
@@ -68,8 +68,8 @@ export default function Home() {
                   />
                   )
                 )}
-              <Box className="box">
-                <Button href="/" >홈으로</Button>
+              <Box className="matchingcomplete_box">
+                <Button color="primary" href="/" >홈으로</Button>
               </Box>
             </div>
           </div>
