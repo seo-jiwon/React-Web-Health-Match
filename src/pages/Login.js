@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import './Login.css'
 import axios from "axios";
+import Footer from './Footer';
 
 
 export default function Login() {
@@ -12,11 +13,11 @@ export default function Login() {
     
     const onValid = (data) => {
         const {email, pw} = data;
-        axios.post("http://localhost:5000/users/signin", {email, pw})
+        axios.post("http://localhost:5000/users/signin", {email: email, pw: pw})
         .then(response => {
             console.log(response.data, "onvalid");
             localStorage.setItem("user", email);
-            navigate('/');
+            navigate('/');            
         })
         .catch(error => {
             console.log(error.data, "onInvalid");
@@ -24,10 +25,9 @@ export default function Login() {
         });
     };
         
-
-    
     
     return (
+        <div>
         <div className="Login">
             <Navbar />
             <div className="container">
@@ -47,6 +47,8 @@ export default function Login() {
                     <Link to="/signup">sign up?</Link>
                 </form>
             </div>
+        </div>
+        <Footer/>
         </div>
   );
 }

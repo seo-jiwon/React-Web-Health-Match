@@ -5,9 +5,11 @@ import './BackImage.css';
 
 function App() {
   return (
+    <body>
     <div className="App">
       <Router/>
     </div>
+    </body>
   );
 }
 

@@ -5,6 +5,7 @@ import { useForm, useFormState } from "react-hook-form";
 import './SignUp.css'
 import axios from "axios";
 import { Password } from "@mui/icons-material";
+import Footer from './Footer';
 
 export default function SignUp() {
     const { register, watch, handleSubmit, formState: {errors}} = useForm();
@@ -107,6 +108,7 @@ export default function SignUp() {
                 </form>
             </div>
             </main>
+            <Footer />
         </div>
     );
 }
