@@ -60,7 +60,7 @@ export default function Communityupdate() {
             <Input type="hidden" name="post_id" id="post_id" value={data.post_id}/>
             <TextField fullWidth defaultValue={data.title} id="title" name="title" label="제목" variant="filled" color="success" />
             <TextField fullWidth defaultValue={data.content} id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
-            <Button type="submit" variant="contained" color="success">수정완료</Button>
+            <Button type="submit" variant="contained" >수정완료</Button>
           </Stack>
           </form>
       </Container>

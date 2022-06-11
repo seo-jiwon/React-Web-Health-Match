@@ -58,7 +58,7 @@ export default function Newpost() {
                       <TextField fullWidth id="title" name="title" label="제목" variant="filled" color="success" />
                       <TextField fullWidth id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
 
-                      <Button type="submit" variant="contained" color="success" >등록완료</Button>
+                      <Button type="submit" variant="contained" >등록완료</Button>
 
                     </Stack>
                   </form>
