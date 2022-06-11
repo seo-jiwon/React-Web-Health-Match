@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import SettingsIcon from '@mui/icons-material/Settings';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 export default function Navbar() {
@@ -36,7 +36,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
-              ><SettingsIcon/>
+              ><PersonIcon/>
               </Button>
               <Menu
                 id="menu-appbar"

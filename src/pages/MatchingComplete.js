@@ -55,7 +55,7 @@ export default function Home() {
           <div className="inner">
             <div className="cont">
               <div>
-                <h2 className="h2_line">매칭완료 내역:)</h2>
+                <h2 className="h2_line">매칭완료 :)</h2>
               </div>
               {data.map(
                 ({ face, area, day, time, free }) => (
@@ -69,7 +69,7 @@ export default function Home() {
                   )
                 )}
               <Box className="box">
-                <Button href="/" color="primary" >홈으로</Button>
+                <Button href="/" >홈으로</Button>
               </Box>
             </div>
           </div>
