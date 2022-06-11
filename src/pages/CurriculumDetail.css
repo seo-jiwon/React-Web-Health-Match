@@ -1,9 +1,11 @@
+
 .curriContent {
-    border: 1px solid #3676c7;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    border: 4px solid #53186e;
+    background-color: white; 
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-top: 15rem;
+    padding-bottom: 15rem;
     display: grid;
     border-radius: 10px;
     text-align: center;

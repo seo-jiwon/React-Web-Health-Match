@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import './CurriculumDetail.css';
+import Footer from './Footer';
+import Box from '@mui/material/Box';
 
 
 
@@ -32,7 +34,9 @@ export default function Home() {
     return (
         <div>
         <Navbar />
-            <main className="main">
+        <div className="curriculumdetail_box">
+    <Box>
+         <main className="main">
             <h2>커리큘럼 :)</h2>
                 <div className="curriContent">
                     {data.map(
@@ -44,6 +48,9 @@ export default function Home() {
                     )}
                 </div>
             </main>
+        </Box>
+        </div>
+            <Footer/>
         </div>
     );
 }
