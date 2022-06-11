@@ -33,29 +33,33 @@ export default function Curriculum() {
   }
   
   return (
-    <div>
-      <Navbar/>
-      <div className="main">
-        <div className="curri_inner">
-          <div className="curri_cont">
-            <div>
-              <h2>커리큘럼 작성:)</h2>
+    <body className="body">
+      <div className="footer_fix">
+        <Navbar/>
+        <div className="main">
+          <div className="curri_inner">
+            <div className="curri_cont">
+              <div>
+                <h2>커리큘럼 작성:)</h2>
+              </div>
+              {/* <Box style={{ padding:'15px' }}> */}
+              <Box>
+                <Container>
+                    <form onSubmit={curriculumSubmit}>
+                    <Stack spacing={2}>
+                      <TextField className="curri_textfield" color="primary" fullWidth id="curriculum" name="curriculum" label="커리큘럼 작성" variant="outlined" multiline rows={16} />
+                      <Button type="submit">등록완료</Button>
+                    </Stack>
+                    </form>
+                </Container>
+              </Box>
             </div>
-            {/* <Box style={{ padding:'15px' }}> */}
-            <Box>
-              <Container>
-                  <form onSubmit={curriculumSubmit}>
-                  <Stack spacing={2}>
-                    <TextField className="curri_textfield" color="primary" fullWidth id="curriculum" name="curriculum" label="커리큘럼 작성" variant="outlined" multiline rows={16} />
-                    <Button type="submit">등록완료</Button>
-                  </Stack>
-                  </form>
-              </Container>
-            </Box>
           </div>
         </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
-      <Footer/>
-    </div>
+    </body>
   );
 }

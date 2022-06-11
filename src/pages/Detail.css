@@ -1,3 +1,26 @@
+.body {
+  height: 100%;
+}
+
+.footer_fix {
+  /* height: auto;
+  min-height: 100%;
+  padding-bottom: 123px; */
+
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 123px;
+}
+
+.footer {
+  /* height: 123px;
+  position: relative;
+  transform: translateY(-100%); */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
 .Post {
   /* width: 65%;
   margin: 0 auto;

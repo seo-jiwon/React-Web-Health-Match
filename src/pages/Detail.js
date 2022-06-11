@@ -71,33 +71,38 @@ const Detail = () => {
         )
     } else {
         return (
-            <div>
-                <Navbar />
-                <div classNmae="main">
-                    <div className='detail_inner'>
-                        <div className='detail_cont'>
-                            <table className="table">
-                                <tr className="detail_header">
-                                    <th className="detail_title">{data.title}</th>
-                                    <th className="detail_date">작성일 {data.write_date}</th>
-                                    <th className="detail_writer">작성자 {data.writer}</th>
-                                </tr>
-                                <tr height="350px">
-                                    <td className="td" colSpan="6">{data.content}</td>
-                                </tr>
-                            </table>
-                            <div className='btns'>
-                                <Link to='/update' state = {{data : data}}>
-                                    <Button sx={{marginRight:2}} className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
-                                </Link>
-                                <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
+            <body className="body">
+                <div className="footer_fix">
+                    <Navbar />
+                    <div classNmae="main">
+                    {/* <div  className="footer_fix"> */}
+                        <div className='detail_inner'>
+                            <div className='detail_cont'>
+                                <table className="table">
+                                    <tr className="detail_header">
+                                        <th className="detail_title">{data.title}</th>
+                                        <th className="detail_date">작성일 {data.write_date}</th>
+                                        <th className="detail_writer">작성자 {data.writer}</th>
+                                    </tr>
+                                    <tr height="350px">
+                                        <td className="td" colSpan="6">{data.content}</td>
+                                    </tr>
+                                </table>
+                                <div className='btns'>
+                                    <Link to='/update' state = {{data : data}}>
+                                        <Button sx={{marginRight:2}} className="btn" variant="outlined" startIcon={<AutorenewOutlinedIcon />}>UPDATE</Button>
+                                    </Link>
+                                    <Button className="btn" variant="outlined" onClick={() => deletepost(id)} startIcon={<DeleteIcon />}>Delete</Button>
+                                </div>
+                                <Comment post_id={id}/>
                             </div>
-                            <Comment post_id={id}/>
                         </div>
                     </div>
+                    <div className="footer">
+                        <Footer />
+                    </div>
                 </div>
-            <Footer/>
-        </div>
+            </body>
         )
     }
 }

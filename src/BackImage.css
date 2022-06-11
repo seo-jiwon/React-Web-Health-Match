@@ -1,6 +1,7 @@
 .App {
     background-image: url('./pages/img/back.png');
-    height: 100vh;
+    min-height: 100%;
+    height: 140vh;
     flex: 1;
     position: absolute;
     background-position: center;
