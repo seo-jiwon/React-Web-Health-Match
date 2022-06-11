@@ -104,148 +104,152 @@ export default function Matching() {
     const [value, onChange] = useState('10:00');
 
     return (
-        <div>
-            <Navbar />
-            <form onSubmit={matchSubmit}>
-                <main className="matching_main">
-                    <div className="matching_tool">
-                        <div className="matching-container">
-                            <h2 className="matching-line">Matching :)</h2>
+        <body className="body">
+            <div className="footer_fix">
+                <Navbar />
+                <div className="main">
+                    <div className="curri_inner">
+                        <div className="curri_cont">
+                            <form onSubmit={matchSubmit}>
+                                <h2 className="matching-line">Matching :)</h2>
 
-                            <RadioGroup row sx={{ justifyContent: "center" }}>
-                                <FormControlLabel
-                                    value="대면"
-                                    defaultValue={checkedFace}
-                                    control={<Radio />}
-                                    onChange={(e) => handleChange(e, 'facetoface')}
-                                    id="facetoface"
-                                    name="face"
-                                    label="대면">
-                                    {
-                                        AREA_SELECT.map((facetoface, idx) => {
-                                            return <option key={idx} value={facetoface}>{facetoface}</option>
-                                        })
-                                    }
-                                </FormControlLabel>
-                                <FormControlLabel
-                                    value="비대면"
-                                    defaultValue={checkedFace}
-                                    control={<Radio />}
-                                    onChange={(e) => handleChange(e, 'nonfacetoface')}
-                                    id="nonfacetoface"
-                                    name="face"
-                                    label="비대면">
-                                    {
-                                        AREA_SELECT.map((nonfacetoface, idx) => {
-                                            return <option key={idx} value={nonfacetoface}>{nonfacetoface}</option>
-                                        })
-                                    }
-                                </FormControlLabel>
-                            </RadioGroup>
-
-                            <div className="matching_control">
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                                        지역
-                                    </InputLabel>
-                                    <NativeSelect
-                                        className={classes.selectEmpty}
-                                        defaultValue={searchArea}
-                                        value={searchArea}
-                                        onChange={(e) => handleChange(e, 'area')}
-                                        id="area"
-                                        name="area"
-                                    >
-                                        <option value=''></option>
+                                <RadioGroup row sx={{ justifyContent: "center" }}>
+                                    <FormControlLabel
+                                        value="대면"
+                                        defaultValue={checkedFace}
+                                        control={<Radio />}
+                                        onChange={(e) => handleChange(e, 'facetoface')}
+                                        id="facetoface"
+                                        name="face"
+                                        label="대면">
                                         {
-                                            AREA_SELECT.map((area, idx) => {
-                                                return <option key={idx} value={area}>{area}</option>
+                                            AREA_SELECT.map((facetoface, idx) => {
+                                                return <option key={idx} value={facetoface}>{facetoface}</option>
                                             })
                                         }
-                                    </NativeSelect>
-                                </FormControl>
-
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                                        요일
-                                    </InputLabel>
-                                    <NativeSelect
-                                        className={classes.selectEmpty}
-                                        defaultValue={searchDay}
-                                        value={searchDay}
-                                        onChange={(e) => handleChange(e, 'day')}
-                                        id="day"
-                                        name="day"
-                                    >
-                                        <option value=''></option>
+                                    </FormControlLabel>
+                                    <FormControlLabel
+                                        value="비대면"
+                                        defaultValue={checkedFace}
+                                        control={<Radio />}
+                                        onChange={(e) => handleChange(e, 'nonfacetoface')}
+                                        id="nonfacetoface"
+                                        name="face"
+                                        label="비대면">
                                         {
-                                            DAY_SELECT.map((day, idx) => {
-                                                return <option key={idx} value={day}>{day}요일</option>
+                                            AREA_SELECT.map((nonfacetoface, idx) => {
+                                                return <option key={idx} value={nonfacetoface}>{nonfacetoface}</option>
                                             })
                                         }
-                                    </NativeSelect>
-                                </FormControl>
+                                    </FormControlLabel>
+                                </RadioGroup>
 
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                                        시간
-                                    </InputLabel>
-                                    <NativeSelect
-                                        className={classes.selectEmpty}
-                                        defaultValue={searchTime}
-                                        value={searchTime}
-                                        onChange={(e) => handleChange(e, 'time')}
-                                        id="time"
-                                        name="time"
-                                    >
-                                        <option value=''></option>
+                                <div className="matching_control">
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                                            지역
+                                        </InputLabel>
+                                        <NativeSelect
+                                            className={classes.selectEmpty}
+                                            defaultValue={searchArea}
+                                            value={searchArea}
+                                            onChange={(e) => handleChange(e, 'area')}
+                                            id="area"
+                                            name="area"
+                                        >
+                                            <option value=''></option>
+                                            {
+                                                AREA_SELECT.map((area, idx) => {
+                                                    return <option key={idx} value={area}>{area}</option>
+                                                })
+                                            }
+                                        </NativeSelect>
+                                    </FormControl>
+
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                                            요일
+                                        </InputLabel>
+                                        <NativeSelect
+                                            className={classes.selectEmpty}
+                                            defaultValue={searchDay}
+                                            value={searchDay}
+                                            onChange={(e) => handleChange(e, 'day')}
+                                            id="day"
+                                            name="day"
+                                        >
+                                            <option value=''></option>
+                                            {
+                                                DAY_SELECT.map((day, idx) => {
+                                                    return <option key={idx} value={day}>{day}요일</option>
+                                                })
+                                            }
+                                        </NativeSelect>
+                                    </FormControl>
+
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                                            시간
+                                        </InputLabel>
+                                        <NativeSelect
+                                            className={classes.selectEmpty}
+                                            defaultValue={searchTime}
+                                            value={searchTime}
+                                            onChange={(e) => handleChange(e, 'time')}
+                                            id="time"
+                                            name="time"
+                                        >
+                                            <option value=''></option>
+                                            {
+                                                TIME_SELECT.map((time, idx) => {
+                                                    return <option key={idx} value={time}>{time}시</option>
+                                                })
+                                            }
+                                        </NativeSelect>
+                                    </FormControl>
+                                </div>
+
+                                <RadioGroup row sx={{ justifyContent: "center", paddingTop: "25px", paddingRight: "12px" }}>
+                                    <FormControlLabel
+                                        value="무료"
+                                        defaultValue={checkedPay}
+                                        control={<Radio />}
+                                        onChange={(e) => handleChange(e, 'free')}
+                                        id="free"
+                                        name="pay"
+                                        label="무료">
                                         {
-                                            TIME_SELECT.map((time, idx) => {
-                                                return <option key={idx} value={time}>{time}시</option>
+                                            AREA_SELECT.map((free, idx) => {
+                                                return <option key={idx} value={free}>{free}</option>
                                             })
                                         }
-                                    </NativeSelect>
-                                </FormControl>
-                            </div>
-
-                            <RadioGroup row sx={{ justifyContent: "center", paddingTop: "25px", paddingRight: "12px" }}>
-                                <FormControlLabel
-                                    value="무료"
-                                    defaultValue={checkedPay}
-                                    control={<Radio />}
-                                    onChange={(e) => handleChange(e, 'free')}
-                                    id="free"
-                                    name="pay"
-                                    label="무료">
-                                    {
-                                        AREA_SELECT.map((free, idx) => {
-                                            return <option key={idx} value={free}>{free}</option>
-                                        })
-                                    }
-                                </FormControlLabel>
-                                <FormControlLabel
-                                    value="유료"
-                                    defaultValue={checkedPay}
-                                    control={<Radio />}
-                                    onChange={(e) => handleChange(e, 'nofree')}
-                                    id="nofree"
-                                    name="pay"
-                                    label="유료">
-                                    {
-                                        AREA_SELECT.map((nofree, idx) => {
-                                            return <option key={idx} value={nofree}>{nofree}</option>
-                                        })
-                                    }
-                                </FormControlLabel>
-                            </RadioGroup>
-                            <Box className="matching_Box">
-                                <Button color="primary" endIcon={<SendIcon />} type="submit" onClick={getData}>Matching</Button>
-                            </Box>
+                                    </FormControlLabel>
+                                    <FormControlLabel
+                                        value="유료"
+                                        defaultValue={checkedPay}
+                                        control={<Radio />}
+                                        onChange={(e) => handleChange(e, 'nofree')}
+                                        id="nofree"
+                                        name="pay"
+                                        label="유료">
+                                        {
+                                            AREA_SELECT.map((nofree, idx) => {
+                                                return <option key={idx} value={nofree}>{nofree}</option>
+                                            })
+                                        }
+                                    </FormControlLabel>
+                                </RadioGroup>
+                                <Box className="matching_Box">
+                                    <Button color="primary" endIcon={<SendIcon />} type="submit" onClick={getData}>Matching</Button>
+                                </Box>
+                            </form>
                         </div>
                     </div>
-                </main>
-            </form>
-            <Footer />
-        </div>
+                </div>
+                <div className="footer">
+                    <Footer />
+                </div>
+            </div>
+        </body>
     );
 }
