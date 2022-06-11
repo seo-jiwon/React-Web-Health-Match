@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Community.css'
 import Navbar from './Navbar';
 import Button from '@mui/material/Button';
+import Footer from './Footer';
 
 function useFetch(url) {
 
@@ -43,34 +44,45 @@ function Community() {
     const data = useFetch('http://localhost:5000/post/community');
 
     return (
-        <div>
-            <Navbar />
-            <main className="list-template">
-                <div className="list-title">
-                    게시판 :)
-                    <Button className="button" sx={{ fontWeight: 'bold'}} href="/newpost">new post</Button>
+        <body className="body">
+            <div className="footer_fix">
+                <Navbar />
+                <div className="main">
+                    <div className='detail_inner'>
+                        <div className='detail_cont'>
+                            <main className="list-template">
+                                <div className="list-title">
+                                    게시판 :)
+                                    <Button className="button" sx={{ fontWeight: 'bold'}} href="/newpost">new post</Button>
+                                </div>
+                                <section className="head-wrapper">
+                                    <span>#</span>
+                                    <span className="title-column">제목</span>
+                                    <span>작성자</span>
+                                    <span>작성일</span>
+                                </section>
+                                <section className="list-wrapper">
+                                    {data.map(
+                                        ({ post_id, title, writer, write_date }) => (
+                                            <ListItem
+                                                post_id={post_id}
+                                                title={title}
+                                                writer={writer}
+                                                write_date={write_date}
+                                                key={post_id}
+                                            />
+                                        )
+                                    )}
+                                </section>
+                            </main>
+                        </div>
+                    </div>
                 </div>
-                <section className="head-wrapper">
-                    <span>#</span>
-                    <span className="title-column">제목</span>
-                    <span>작성자</span>
-                    <span>작성일</span>
-                </section>
-                <section className="list-wrapper">
-                    {data.map(
-                        ({ post_id, title, writer, write_date }) => (
-                            <ListItem
-                                post_id={post_id}
-                                title={title}
-                                writer={writer}
-                                write_date={write_date}
-                                key={post_id}
-                            />
-                        )
-                    )}
-                </section>
-            </main>
-        </div>
+                <div className="footer">
+                    <Footer />
+                </div>
+            </div>
+        </body>
     );
 }
 

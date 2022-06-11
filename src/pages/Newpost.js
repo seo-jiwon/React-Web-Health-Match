@@ -6,6 +6,11 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import './Newpost.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
+
+
 
 export default function Newpost() {
   const navigate = useNavigate();
@@ -38,17 +43,31 @@ export default function Newpost() {
   }
 
   return (
-    <Box >
-      <Container sx={{ width : '50%'}}>
+    <>
+    <Navbar/>
+    <div> 
+    <div className="newpost_box">
+    <Box>
+  <h1>NEWPOST :)</h1>
+      <div>
+      <Container sx={{ width: 900, height: 500 }}>
           <form onSubmit={postSubmit}>
-          <Stack spacing={2}>
-            <TextField fullWidth id="title" name="title" label="제목" variant="outlined" />
-            <TextField fullWidth id="content" name="content" label="내용" variant="outlined" multiline rows={4} />
-            <Button type="submit">등록완료</Button>
+          <Stack spacing={1}>
+          
+            <TextField fullWidth id="title" name="title" label="제목" variant="filled" color="success" />
+            <TextField fullWidth id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
+            
+            
+            <Button type="submit" variant="contained" color="success" >등록완료</Button>
+
           </Stack>
           </form>
       </Container>
+      </div>
     </Box>
-    
+    </div>
+    </div>
+    <Footer/>
+    </>
   )
 }

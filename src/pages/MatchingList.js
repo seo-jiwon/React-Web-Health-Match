@@ -5,6 +5,7 @@ import './MatchingList.css'
 import Navbar from './Navbar';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import Footer from './Footer';
 
 function useFetch(url) {
 
@@ -89,40 +90,51 @@ export default function MatchingList() {
     }
 
     return(
-        <div>
-            <Navbar />
-            <main className="list-template">
-                <div className="list-title">
-                    강사목록 :)
+        <body className="body">
+            <div className="footer_fix">
+                <Navbar />
+                <div classNmae="main">
+                    <div className='detail_inner'>
+                        <div className='detail_cont'>
+                            <main className="list-template">
+                                <div className="list-title">
+                                    강사목록 :)
+                                </div>
+                                <section className="head-wrapper">
+                                    <span>강사번호</span>
+                                    <span className="title-column">커리큘럼</span>
+                                    <span>대면</span>
+                                    <span>지역</span>
+                                    <span>요일</span>
+                                    <span>시간</span>
+                                    <span>유무료</span>
+                                    <span>선택</span>
+                                </section>
+                                <section className="list-wrapper">
+                                    {data.map(
+                                        ({ select_id, t_id, title, face, area, day, time, free }) => (
+                                            <ListItem
+                                                select_id={select_id}
+                                                t_id={t_id}
+                                                title={title}
+                                                face={face}
+                                                area={area}
+                                                day={day}
+                                                time={time}
+                                                free={free}
+                                                key={select_id}
+                                            />
+                                        )
+                                    )}
+                                </section>
+                            </main>
+                        </div>
+                    </div>
                 </div>
-                <section className="head-wrapper">
-                    <span>강사번호</span>
-                    <span className="title-column">커리큘럼</span>
-                    <span>대면</span>
-                    <span>지역</span>
-                    <span>요일</span>
-                    <span>시간</span>
-                    <span>유무료</span>
-                    <span>선택</span>
-                </section>
-                <section className="list-wrapper">
-                    {data.map(
-                        ({ select_id, t_id, title, face, area, day, time, free }) => (
-                            <ListItem
-                                select_id={select_id}
-                                t_id={t_id}
-                                title={title}
-                                face={face}
-                                area={area}
-                                day={day}
-                                time={time}
-                                free={free}
-                                key={select_id}
-                            />
-                        )
-                    )}
-                </section>
-            </main>
-        </div>
+                <div className="footer">
+                    <Footer />
+                </div>
+            </div>
+        </body>
     );
 }

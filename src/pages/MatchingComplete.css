@@ -23,11 +23,7 @@
 
 .h2_line{
     border-bottom: 2px solid #999;
-}
-
-.box {
     text-align: center;
-    margin-top: 20rem;
 }
 
 .basic_table {
@@ -54,5 +50,10 @@
     border-bottom: 1px solid #444444;
     padding: 10px;
     text-align: center;
+}
+
+.box {
+    text-align: center;
+    margin-top: 10rem;
 }
 
