@@ -7,6 +7,9 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import './Communityupdate.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function Communityupdate() {
   const navigate = useNavigate();
@@ -43,18 +46,31 @@ export default function Communityupdate() {
   }
 
   return (
+    <>
+    <Navbar />
+    <div>
+    <Container sx={{ width: '50%' }}>
+    <div className="updatepost_box">
     <Box >
-      <Container sx={{ width : '50%'}}>
+    <h1>UPDATEPOST :)</h1>
+    <div>
+      <Container  sx={{ width: 900, height: 500 }}>
           <form onSubmit={postSubmit}>
-          <Stack spacing={2}>
+          <Stack spacing={1}>
             <Input type="hidden" name="post_id" id="post_id" value={data.post_id}/>
-            <TextField fullWidth defaultValue={data.title} id="title" name="title" label="제목" variant="outlined" />
-            <TextField fullWidth defaultValue={data.content} id="content" name="content" label="내용" variant="outlined" multiline rows={4} />
-            <Button type="submit">수정완료</Button>
+            <TextField fullWidth defaultValue={data.title} id="title" name="title" label="제목" variant="filled" color="success" />
+            <TextField fullWidth defaultValue={data.content} id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
+            <Button type="submit" variant="contained" color="success">수정완료</Button>
           </Stack>
           </form>
       </Container>
+      </div>
     </Box>
+    </div>
+    </Container>
+    </div>
+    <Footer />
+    </>
     
   )
 }
