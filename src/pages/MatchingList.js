@@ -96,13 +96,13 @@ export default function MatchingList() {
                 <div classNmae="main">
                     <div className='detail_inner'>
                         <div className='detail_cont'>
-                            <main className="list-template">
-                                <div className="list-title">
+                            <main className="matching-list-template">
+                                <div className="matching-list-title">
                                     강사목록 :)
                                 </div>
-                                <section className="head-wrapper">
+                                <section className="matching-head-wrapper">
                                     <span>강사번호</span>
-                                    <span className="title-column">커리큘럼</span>
+                                    <span className="matching-title-column">커리큘럼</span>
                                     <span>대면</span>
                                     <span>지역</span>
                                     <span>요일</span>
@@ -110,7 +110,7 @@ export default function MatchingList() {
                                     <span>유무료</span>
                                     <span>선택</span>
                                 </section>
-                                <section className="list-wrapper">
+                                <section className="matching-list-wrapper">
                                     {data.map(
                                         ({ select_id, t_id, title, face, area, day, time, free }) => (
                                             <ListItem

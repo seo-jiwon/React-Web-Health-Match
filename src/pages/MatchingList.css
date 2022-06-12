@@ -27,7 +27,7 @@
 
   .face {
     margin-left: 0rem;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     text-align: center;
     border: none;
     width: 30px;
@@ -37,7 +37,7 @@
     margin-right: 2rem;
     text-align: center;
     border: none;
-    width: 50px;
+    width: 60px;
   }
 
   .day {
@@ -79,14 +79,6 @@
     .button{
       margin-left: 5;
     }
-  
-    .head-wrapper {
-      margin: 0 auto;
-      display: flex;
-      width: 95%;
-      font-weight: 600;
-      border-bottom: 1px solid #d3d3d3;
-    }
     
     span {
       margin: 1rem;
@@ -95,18 +87,41 @@
       text-align: center;
     }
     
-    .title-column {
-      flex: 1;
-    }
-    
-    .list-wrapper {
-      margin: 0 auto;
-      width: 95%;
-      font-weight: 400;
-      font-size: 0.7rem;
-    }
     
     .delete-btn {
       width: 70px;
     }
     
+    .matching-list-template {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+    
+    .matching-list-title {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      font-weight: 600;
+      color: #232b43;
+      border-bottom: solid;
+    }
+
+    .matching-head-wrapper {
+      margin: 0 auto;
+      display: flex;
+      width: 95%;
+      font-weight: 600;
+      border-bottom: 1px solid #d3d3d3;
+    }
+
+    .matching-list-wrapper {
+      margin: 0 auto;
+      width: 95%;
+      font-weight: 400;
+      font-size: 0.7rem;
+    }
+
+    .matching-title-column {
+      flex: 1;
+    }
