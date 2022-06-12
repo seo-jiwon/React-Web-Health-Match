@@ -54,7 +54,7 @@ export default function Communityupdate() {
           <div className="curri_cont">
     <div className="updatepost_box">
     <div>
-    <h1>UPDATEPOST :)</h1>
+    <h1>UPDATE POST :)</h1>
     </div>
     <Box>
       <Container>

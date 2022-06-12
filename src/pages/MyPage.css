@@ -1,57 +1,53 @@
-.main {
-    display: grid;
-    place-content: center;
-    margin-top: 1rem;
-  }
-  
-  .mypage-form {
-      width: 350px;
-      border: 1px solid #3676c7;
-      padding: 5rem;
-      display: grid;
-      flex-direction: column;
-      text-align: center;
-      border-radius: 10px;
-    }
-    
-  .mypage-input {
-      border: 0.5px solid rgb(219, 219, 219);
-      padding: 10px;
-      margin-top: 5px;
-      height: 30px;
-  }
-    
-  .mypage-btn {
-      margin: 20px 0px;
-      background-color: #22589e;
-      font-size: 16px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 20px 30px 40px;
-    }
-    
-  .mypage-h1 {
-      color: #22589e;
-  }
-    
-  .mypage-label {
-      text-align: left;
-      margin-top: 15px;
-      margin-left: 5px;
-      font-weight: bold
-  }
-  
-  .memberType {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .type-check {
-      padding-left: 20px;
-      padding-right: 20px;
-      display:grid;
-  }
-  
-  
+.mypage-form {
+  width: 500px;
+  border: 1px solid #2048f2;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  display: grid;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.mypage-input {
+  border: 0.5px solid rgb(219, 219, 219);
+  padding: 10px;
+  margin-top: 5px;
+  height: 30px;
+}
+
+.mypage-btn {
+  margin: 20px 0px;
+  background-color: #22589e;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 20px 30px 40px;
+}
+
+.mypage-h1 {
+  color: #22589e;
+}
+
+.mypage-label {
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 5px;
+  font-weight: bold
+}
+
+.memberType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type-check {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: grid;
+}

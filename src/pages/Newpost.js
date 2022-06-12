@@ -51,7 +51,7 @@ export default function Newpost() {
           <div className="curri_cont">
     <div className="updatepost_box">
     <div>
-    <h1>UPDATEPOST :)</h1>
+    <h1>POST :)</h1>
     </div>
     <Box>
       <Container>
