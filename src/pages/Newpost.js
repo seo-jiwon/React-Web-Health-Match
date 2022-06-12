@@ -43,32 +43,36 @@ export default function Newpost() {
   }
 
   return (
-    <>
-      <Navbar />
-      <div>
-        <Container sx={{ width: '50%' }}>
-          <div className="newpost_box">
-            <Box>
-              <h1>NEWPOST :)</h1>
-              <div>
-                <Container sx={{ width: 900, height: 500 }}>
-                  <form onSubmit={postSubmit}>
-                    <Stack spacing={1}>
-
+    <body className="body">
+    <div className="footer_fix">
+      <Navbar/>
+      <div className="main">
+        <div className="curri_inner">
+          <div className="curri_cont">
+    <div className="updatepost_box">
+    <div>
+    <h1>UPDATEPOST :)</h1>
+    </div>
+    <Box>
+      <Container>
+          <form onSubmit={postSubmit}>
+          <Stack spacing={2}>
                       <TextField fullWidth id="title" name="title" label="제목" variant="filled" color="success" />
                       <TextField fullWidth id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
 
                       <Button type="submit" variant="contained" >등록완료</Button>
-
-                    </Stack>
-                  </form>
-                </Container>
-              </div>
-            </Box>
-          </div>
-        </Container>
+                      </Stack> 
+                      </form>
+      </Container>
+      </Box>
       </div>
-      <Footer />
-    </>
+      </div>
+    </div>
+    </div>
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
+    </body>
   )
 }

@@ -32,12 +32,17 @@ export default function Home() {
         )
     }
     return (
-        <div>
-        <Navbar />
-        <div className="curriculumdetail_box">
-    <Box>
+        <body className="body">
+        <div className="footer_fix">
+          <Navbar/>
+          <div className="main">
+            <div className="curri_inner">
+              <div className="curri_cont">
+                <div>
+                  <h2>커리큘럼:)</h2>
+                </div>
+        <Box>
          <main className="main">
-            <h2>커리큘럼 :)</h2>
                 <div className="curriContent">
                     {data.map(
                         ({ content }) => (
@@ -50,7 +55,12 @@ export default function Home() {
             </main>
         </Box>
         </div>
-            <Footer/>
         </div>
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
+    </body>
     );
 }

@@ -46,31 +46,40 @@ export default function Communityupdate() {
   }
 
   return (
-    <>
-    <Navbar />
-    <div>
-    <Container sx={{ width: '50%' }}>
+    <body className="body">
+    <div className="footer_fix">
+      <Navbar/>
+      <div className="main">
+        <div className="curri_inner">
+          <div className="curri_cont">
     <div className="updatepost_box">
-    <Box >
-    <h1>UPDATEPOST :)</h1>
     <div>
-      <Container  sx={{ width: 900, height: 500 }}>
+    <h1>UPDATEPOST :)</h1>
+    </div>
+    <Box>
+      <Container>
           <form onSubmit={postSubmit}>
-          <Stack spacing={1}>
+          <Stack spacing={2}>
             <Input type="hidden" name="post_id" id="post_id" value={data.post_id}/>
             <TextField fullWidth defaultValue={data.title} id="title" name="title" label="제목" variant="filled" color="success" />
             <TextField fullWidth defaultValue={data.content} id="content" name="content" label="내용" variant="filled" color="success" multiline rows={16} />
             <Button type="submit" variant="contained" >수정완료</Button>
           </Stack>
           </form>
+          
       </Container>
+      </Box>
       </div>
-    </Box>
     </div>
-    </Container>
     </div>
-    <Footer />
-    </>
+  
+          
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
+      </div>
+    </body>
     
   )
 }
