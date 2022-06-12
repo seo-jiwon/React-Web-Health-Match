@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from './Navbar';
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import './Login.css'
+import './Login.css';
 import axios from "axios";
 import Footer from './Footer';
 
@@ -27,7 +27,8 @@ export default function Login() {
         
     
     return (
-        <div>
+        <body className="body">
+        <div className="footer_fix">
         <div className="Login">
             <Navbar />
             <div className="container">
@@ -48,7 +49,10 @@ export default function Login() {
                 </form>
             </div>
         </div>
-        <Footer/>
+        <div className="footer">
+            <Footer />
         </div>
+    </div>
+    </body>
   );
 }

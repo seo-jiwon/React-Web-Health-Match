@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, useFormState } from "react-hook-form";
 import './MyPage.css'
 import axios from "axios";
+import Footer from './Footer';
 
 export default function MyPage() {
     const { register, watch, handleSubmit, formState: {errors}} = useForm();
@@ -25,6 +26,8 @@ export default function MyPage() {
     };
     
     return (
+        <body className="body">
+        <div className="footer_fix">
         <div className="MyPage">
             <Navbar />
             <main className="main">
@@ -105,6 +108,11 @@ export default function MyPage() {
                 </form>
             </div>
             </main>
+            <div className="footer">
+                <Footer />
+            </div>
         </div>
+        </div>
+        </body>
     );
 }

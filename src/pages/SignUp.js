@@ -28,6 +28,8 @@ export default function SignUp() {
     };
     
     return (
+        <body className="body">
+        <div className="footer_fix">
         <div className="SignUp">
             <Navbar />
             <main className="main">
@@ -108,7 +110,11 @@ export default function SignUp() {
                 </form>
             </div>
             </main>
-            <Footer />
+            <div className="footer">
+                <Footer />
+            </div>
         </div>
+        </div>
+        </body>
     );
 }

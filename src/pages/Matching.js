@@ -112,7 +112,7 @@ export default function Matching() {
                         <div className="curri_cont">
                             <form onSubmit={matchSubmit}>
                                 <h2 className="matching-line">Matching :)</h2>
-
+                                <div className="select">
                                 <RadioGroup row sx={{ justifyContent: "center" }}>
                                     <FormControlLabel
                                         value="대면"
@@ -239,6 +239,7 @@ export default function Matching() {
                                         }
                                     </FormControlLabel>
                                 </RadioGroup>
+                                </div>
                                 <Box className="matching_Box">
                                     <Button color="primary" endIcon={<SendIcon />} type="submit" onClick={getData}>Matching</Button>
                                 </Box>

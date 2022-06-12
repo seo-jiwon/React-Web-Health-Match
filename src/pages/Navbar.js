@@ -24,9 +24,13 @@ export default function Navbar() {
     <div>
     <Box sx={{ flexGrow: 1 }}>
       <Toolbar>
-        <Typography component="div" color="white" align="center" style={{ verticalAlign: "middle" }} sx={{ flexGrow: 1 }}>
-          <h1>　　　Healthmatching<FitnessCenterIcon /></h1>
-          </Typography>
+        <Typography component="div" align="center" style={{ verticalAlign: "middle" }} sx={{ flexGrow: 1 }}>
+        {isLoggedIn ? (
+          <h1><a href="/" style={{color: "white"}}>　　　 　 　　　Healthmatching<FitnessCenterIcon /></a></h1>
+        ) : (
+          <h1><a href="/" style={{color: "white"}}>　　　Healthmatching<FitnessCenterIcon /></a></h1>
+        )}
+        </Typography>
         <p>{window.localStorage.getItem("user")}</p>
           {isLoggedIn ? (
             <><div>
@@ -53,9 +57,9 @@ export default function Navbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem component="a" href="/mypage">MyPage</MenuItem>
-                <MenuItem component="a" href="/timetable">Timetable</MenuItem>
-                <MenuItem component="a" href="/curriculum">Curriculum</MenuItem>
+                <MenuItem component="a" color="white" href="/mypage" >MyPage</MenuItem>
+                <MenuItem component="a" href="/timetable" >Timetable</MenuItem>
+                <MenuItem component="a" href="/curriculum" >Curriculum</MenuItem>
               </Menu>
             </div><Button href="/" onClick={() => {
               localStorage.removeItem("user");
