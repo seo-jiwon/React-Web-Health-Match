@@ -5,25 +5,33 @@ import { useForm } from "react-hook-form";
 import './Login.css';
 import axios from "axios";
 import Footer from './Footer';
+import { responsiveFontSizes } from "@mui/material";
 
 
 export default function Login() {
     const { register, watch, handleSubmit, errors} = useForm();
     const navigate = useNavigate();
-    
+
     const onValid = (data) => {
-        const {email, pw} = data;
-        axios.post("http://localhost:5000/users/signin", {email: email, pw: pw})
-        .then(response => {
-            console.log(response.data, "onvalid");
-            localStorage.setItem("user", email);
-            navigate('/');            
-        })
-        .catch(error => {
-            console.log(error.data, "onInvalid");
+      const {email, pw} = data;
+      axios.post("http://localhost:5000/users/signin", {email, pw} )
+      .then((response) => {
+        if(response.data.failure){
             alert("로그인을 실패하였습니다.");
-        });
-    };
+        }
+        if (response.data.success) {
+            console.log("onvalid");
+            alert("로그인을 성공하였습니다.");
+            localStorage.setItem("user", email);
+            navigate('/'); 
+        }
+            
+      })
+      .catch((error) => {
+          console.log(error.data, "onInvalid");
+          alert("로그인을 실패하였습니다.");
+      });
+  };
         
     
     return (
@@ -40,7 +48,7 @@ export default function Login() {
                         placeholder = "ID"
                         />
                     <input
-                        {...register("password", { required: "password error" })}
+                        {...register("pw", { required: "password error" })}
                         type = "password"
                         placeholder = "Password"
                         />
