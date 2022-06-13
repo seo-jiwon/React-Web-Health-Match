@@ -21,7 +21,7 @@ export default function Login() {
         }
         if (response.data.success) {
             console.log("onvalid");
-            alert("로그인을 성공하였습니다.");
+            
             localStorage.setItem("user", email);
             navigate('/'); 
         }
