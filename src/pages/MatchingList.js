@@ -112,10 +112,9 @@ export default function MatchingList() {
                                 </section>
                                 <section className="matching-list-wrapper">
                                     {data.map(
-                                        ({ select_id, t_id, title, face, area, day, time, free }) => (
+                                        ({ select_id, title, face, area, day, time, free }) => (
                                             <ListItem
                                                 select_id={select_id}
-                                                t_id={t_id}
                                                 title={title}
                                                 face={face}
                                                 area={area}

@@ -616,6 +616,7 @@ export default class Curriculum extends React.PureComponent {
             onEditingAppointmentChange={this.onEditingAppointmentChange}
             onAddedAppointmentChange={this.onAddedAppointmentChange}
           />
+          
           <WeekView
             startDayHour={startDayHour}
             endDayHour={endDayHour}
