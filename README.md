@@ -1,4 +1,57 @@
-# Getting Started with Create React App
+# Health Match
+
+> 프로젝트 기간 : 2022.03.21(월) ~ 2022.05.30(월)
+<br/>
+
+## 프로젝트 계획 이유
+코로나로 인해 헬스장 이용의 어려움과 인원 제한이 발생하였고,  
+헬스 입문 시 정보 부족과 조건에 맞는 강사를 찾는데 어려움이 있어  
+조건에 맞는 헬스 파트너 매칭 및 운동 관련 커뮤니티 웹 서비스를 제공하기 위해서 계획하게 되었습니다. 
+
+<br/>
+<br/>
+
+## 실행 방법
+
+- 프로그램 실행
+```
+$ npm start
+``` 
+<br/>
+
+- 서버 실행
+```
+$ cd server.js
+$ node server.js
+```
+<br/>
+<br/>
+
+## 개발 환경
+- Visual Studio Code
+- MySQL Workbench
+<br/>
+<br/>
+
+## 기술 스택
+- HTML/CSS
+- JavaScript
+- React
+- MySQL
+- Node.js
+<br/>
+<br/>
+
+## 기능 설명
+<br/>
+<br/>
+
+## 테스트 환경
+- Web
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
