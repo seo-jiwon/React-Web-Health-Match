@@ -21,7 +21,9 @@ $ npm start
 
 - 서버 실행
 ```
-$ cd server.js
+$ cd server
+```
+```
 $ node server.js
 ```
 <br/>
