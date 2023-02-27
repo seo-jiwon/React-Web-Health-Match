@@ -5,7 +5,7 @@
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/59152019/221532132-ff3ff748-7949-4639-b83b-51f1fb6bd7ce.png">
 <br/>
 
-<b>Health Matching은 일반 사용자의 조건에 맞는 강사님을 찾아주고, 운동 커뮤니티를 제공하는 웹 서비스입니다.</b>
+<b>Health Matching은 일반 사용자의 조건에 맞는 강사님을 찾아주고, 운동 커뮤니티를 제공하는 웹 서비스</b>
 
 해당 프로젝트는 로그인 시 <b>회원 구분이 되어있지 않아 한 아이디로 실행</b>되었습니다.  
 <details>
